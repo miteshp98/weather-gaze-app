@@ -1,0 +1,35 @@
+{
+  "name": "weather-gaze",
+  "version": "1.0.0",
+  "description": "A weather dashboard providing real-time forecasts, current weather conditions, and a 7-day outlook with customizable units and settings.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html"
+  },
+  "keywords": [
+    "weather",
+    "forecast",
+    "dashboard",
+    "real-time",
+    "weather",
+    "app",
+    "weather",
+    "dashboard"
+  ],
+  "author": "mitesh-panchal",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.12.0",
+    "parcel": "^2.12.0",
+    "sass": "^1.78.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "core-js": "^3.38.1",
+    "regenerator-runtime": "^0.14.1"
+  }
+}
