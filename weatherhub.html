@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Weather Gaze offers real-time weather forecasts and insights, helping you stay informed about the weather wherever you are. Track conditions, get accurate updates, and plan your day with confidence."
+    />
+    <meta
+      name="keywords"
+      content="weather, forecast, real-time weather, weather dashboard, weather updates"
+    />
+    <meta name="author" content="Mitesh Panchal" />
+    <title>Weather Gaze: Explore Today's Forecast and Conditions</title>
+
+    <!-- CSS STYLESHEET -->
+    <!-- <link rel="stylesheet" href="css/main.scss" /> -->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/base/reset.css" />
+
+    <!-- CSS Library -->
+
+    <!-- Font Link's -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="layout">
+      <header class="weather-header">
+        <nav class="main-nav">
+          <div class="nav-link-conatiner">
+            <div class="logo-container">
+              <a href="#" class="home-link">
+                <img
+                  src="assets/images/weather_gaze_logo.png"
+                  alt="WeatherGaze"
+                  class="brand-logo"
+                />
+              </a>
+            </div>
+
+            <ul class="nav-list">
+              <li class="nav-item">
+                <a href="weather.html" class="nav-link active-tab"
+                  ><i class="fa-solid fa-cloud-sun-rain"></i>
+                  <span>Weather</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#cities-search-bar" class="nav-link"
+                  ><i class="fa-solid fa-list"></i>
+                  <span>Cities</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="weather.html" class="nav-link"
+                  ><i class="fa-solid fa-map"></i>
+                  <span>Map</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="weather.html" class="nav-link"
+                  ><i class="fa-solid fa-sliders"></i>
+                  <span>Settings</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <section class="weather-overview">
+          <div class="search-container">
+            <form action="">
+              <input
+                type="search"
+                name="searchbar"
+                id="searchbar"
+                placeholder="Search for cities"
+              />
+            </form>
+          </div>
+          <div class="weather-container hidden">
+            <div class="current-weather-wrapper">
+              <div class="city-weather-info">
+                <div class="info">
+                  <h1 class="weather-city">Madrid</h1>
+                  <p class="precipitation-info">
+                    Chance of rain <span class="perception">0%</span>
+                  </p>
+                </div>
+
+                <div class="temprature-wrapper">
+                  <h2 class="current-temp">
+                    31<span class="degree-symbol">&deg;</span>
+                  </h2>
+                </div>
+              </div>
+
+              <div class="weather-icon">
+                <img src="assets/images/sunny-icon.png" alt="Sunny-Day" />
+              </div>
+            </div>
+
+            <article class="seven-day-forecast">
+              <div class="weekly-forecast-wrapper">
+                <h2 class="article-title">7-day forecast</h2>
+
+                <div class="forecast-day-wrapper">
+                  <div class="forecast-day">
+                    <h3 class="weekday">Today</h3>
+                    <p class="weather-type">
+                      <img
+                        src="assets/images/sunny-icon.png"
+                        alt="Sunny-Day"
+                      /><span class="type-info">Sunny</span>
+                    </p>
+                    <p class="temprature">
+                      <span class="max-temp">36</span>/<span class="min-temp"
+                        >22</span
+                      >
+                    </p>
+                  </div>
+
+                  <div class="forecast-day">
+                    <h3 class="weekday">Today</h3>
+                    <p class="weather-type">
+                      <img
+                        src="assets/images/sunny-icon.png"
+                        alt="Sunny-Day"
+                      /><span class="type-info">Sunny</span>
+                    </p>
+                    <p class="temprature">
+                      <span class="max-temp">36</span>/<span class="min-temp"
+                        >22</span
+                      >
+                    </p>
+                  </div>
+
+                  <div class="forecast-day">
+                    <h3 class="weekday">Today</h3>
+                    <p class="weather-type">
+                      <img
+                        src="assets/images/sunny-icon.png"
+                        alt="Sunny-Day"
+                      /><span class="type-info">Sunny</span>
+                    </p>
+                    <p class="temprature">
+                      <span class="max-temp">36</span>/<span class="min-temp"
+                        >22</span
+                      >
+                    </p>
+                  </div>
+
+                  <div class="forecast-day">
+                    <h3 class="weekday">Today</h3>
+                    <p class="weather-type">
+                      <img
+                        src="assets/images/sunny-icon.png"
+                        alt="Sunny-Day"
+                      /><span class="type-info">Sunny</span>
+                    </p>
+                    <p class="temprature">
+                      <span class="max-temp">36</span>/<span class="min-temp"
+                        >22</span
+                      >
+                    </p>
+                  </div>
+
+                  <div class="forecast-day">
+                    <h3 class="weekday">Today</h3>
+                    <p class="weather-type">
+                      <img
+                        src="assets/images/sunny-icon.png"
+                        alt="Sunny-Day"
+                      /><span class="type-info">Sunny</span>
+                    </p>
+                    <p class="temprature">
+                      <span class="max-temp">36</span>/<span class="min-temp"
+                        >22</span
+                      >
+                    </p>
+                  </div>
+
+                  <div class="forecast-day">
+                    <h3 class="weekday">Today</h3>
+                    <p class="weather-type">
+                      <img
+                        src="assets/images/sunny-icon.png"
+                        alt="Sunny-Day"
+                      /><span class="type-info">Sunny</span>
+                    </p>
+                    <p class="temprature">
+                      <span class="max-temp">36</span>/<span class="min-temp"
+                        >22</span
+                      >
+                    </p>
+                  </div>
+
+                  <div class="forecast-day">
+                    <h3 class="weekday">Today</h3>
+                    <p class="weather-type">
+                      <img
+                        src="assets/images/sunny-icon.png"
+                        alt="Sunny-Day"
+                      /><span class="type-info">Sunny</span>
+                    </p>
+                    <p class="temprature">
+                      <span class="max-temp">36</span>/<span class="min-temp"
+                        >22</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="forecast-today-container">
+              <div class="today-forecast-wrapper">
+                <h2 class="article-title">Today's Forecast</h2>
+
+                <div class="time-based-forecast">
+                  <div class="forecast-hourly">
+                    <p class="forecast-time">08:00AM</p>
+                    <div class="weather-icon">
+                      <img src="assets/images/sunny-icon.png" alt="Sunny-Day" />
+                    </div>
+                    <p class="forecast-temprature">25&deg;</p>
+                  </div>
+
+                  <div class="forecast-hourly">
+                    <p class="forecast-time">08:00AM</p>
+                    <div class="weather-icon">
+                      <img src="assets/images/sunny-icon.png" alt="Sunny-Day" />
+                    </div>
+                    <p class="forecast-temprature">25&deg;</p>
+                  </div>
+
+                  <div class="forecast-hourly">
+                    <p class="forecast-time">08:00AM</p>
+                    <div class="weather-icon">
+                      <img src="assets/images/sunny-icon.png" alt="Sunny-Day" />
+                    </div>
+                    <p class="forecast-temprature">25&deg;</p>
+                  </div>
+
+                  <div class="forecast-hourly">
+                    <p class="forecast-time">08:00AM</p>
+                    <div class="weather-icon">
+                      <img src="assets/images/sunny-icon.png" alt="Sunny-Day" />
+                    </div>
+                    <p class="forecast-temprature">25&deg;</p>
+                  </div>
+
+                  <div class="forecast-hourly">
+                    <p class="forecast-time">08:00AM</p>
+                    <div class="weather-icon">
+                      <img src="assets/images/sunny-icon.png" alt="Sunny-Day" />
+                    </div>
+                    <p class="forecast-temprature">25&deg;</p>
+                  </div>
+
+                  <div class="forecast-hourly">
+                    <p class="forecast-time">08:00AM</p>
+                    <div class="weather-icon">
+                      <img src="assets/images/sunny-icon.png" alt="Sunny-Day" />
+                    </div>
+                    <p class="forecast-temprature">25&deg;</p>
+                  </div>
+
+                  <div class="forecast-hourly">
+                    <p class="forecast-time">08:00AM</p>
+                    <div class="weather-icon">
+                      <img src="assets/images/sunny-icon.png" alt="Sunny-Day" />
+                    </div>
+                    <p class="forecast-temprature">25&deg;</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="air-quality-container">
+              <div class="air-condition-wrapper">
+                <div class="title-content">
+                  <h2 class="article-title air-quality-title">
+                    Air Conditions
+                  </h2>
+                  <button class="see-more-btn">See more</button>
+                </div>
+
+                <div class="weather-stats-container">
+                  <div class="weather-stat real-feal">
+                    <div class="icon real-feal-icon">
+                      <i class="fa-solid fa-temperature-half"></i>
+                    </div>
+                    <div class="info real-feal-info">
+                      <h3 class="title">Real Feal</h3>
+                      <p class="value">33&deg;</p>
+                    </div>
+                  </div>
+                  <div class="weather-stat wind-wrap">
+                    <div class="icon wind-icon">
+                      <i class="fa-solid fa-wind"></i>
+                    </div>
+                    <div class="info real-feal-info">
+                      <h3 class="title">Wind</h3>
+                      <p class="value">0.2 km/h</p>
+                    </div>
+                  </div>
+                  <div class="weather-stat real-feal">
+                    <div class="icon real-feal-icon">
+                      <i class="fa-solid fa-droplet"></i>
+                    </div>
+                    <div class="info real-feal-info">
+                      <h3 class="title">Chance of rain</h3>
+                      <p class="value">0%</p>
+                    </div>
+                  </div>
+                  <div class="weather-stat real-feal">
+                    <div class="icon real-feal-icon">
+                      <i class="fa-solid fa-sun"></i>
+                    </div>
+                    <div class="info real-feal-info">
+                      <h3 class="title">UV Index</h3>
+                      <p class="value">3</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="cities-search-bar" class="cities-search-section">
+          <div class="cities-search-container">
+            <div class="cities-list-section">
+              <div class="city-search-result">
+                <div class="weather-icon">
+                  <img src="assets/images/sunny-icon.png" alt="Sunny-Day" />
+                </div>
+                <div class="cities-name-time">
+                  <h2 class="city-name">Madrid</h2>
+                  <p class="current-time">10:23</p>
+                </div>
+                <h3 class="current-temp">31&deg;</h3>
+              </div>
+            </div>
+
+            <div class="city-weather-info">
+              <div class="current-city-weather"></div>
+              <div class="city-today-forecast"></div>
+              <div class="three-day-forecast"></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
