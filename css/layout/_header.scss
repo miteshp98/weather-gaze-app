@@ -1,0 +1,63 @@
+@import "../base/variables";
+
+.weather-header {
+  height: 100%;
+  width: 110px;
+  font-family: $font-rubik;
+  padding: 20px 0px 20px 20px;
+}
+
+.main-nav {
+  height: 100%;
+  background-color: $secondary-bg;
+  border-radius: $border-radius;
+}
+
+.nav-link-conatiner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+
+  .logo-container {
+    margin-block: 3rem 1rem;
+    width: 50px;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.nav-list {
+  margin-top: 2rem;
+  padding-inline: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+
+  .nav-item {
+    .nav-link {
+      width: 110px;
+      color: $grey-text-color;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      gap: 10px;
+      font-weight: 500;
+
+      i {
+        font-size: 1.2em;
+      }
+      &:hover {
+        color: $text-color;
+      }
+
+      &.active-tab {
+        color: $text-color;
+      }
+    }
+  }
+}

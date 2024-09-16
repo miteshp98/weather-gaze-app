@@ -1,0 +1,70 @@
+@import "../base/variables";
+
+body {
+  background-color: $main-bg;
+}
+
+.welcome-page-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  gap: 20px;
+  font-family: $font-rubik;
+}
+
+.welcome-logo-container {
+  width: 100%;
+  padding: 20px;
+
+  div {
+    height: 96dvh;
+    border-radius: 25px;
+    background-color: $secondary-bg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  img {
+    width: 30%;
+    min-width: 350px;
+  }
+}
+.welcome-page-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 10%;
+    min-width: 50px;
+    margin: 40px 0;
+  }
+
+  h1 {
+    color: $heading-color;
+    font-weight: 700;
+    font-size: 2.5em;
+  }
+
+  p {
+    color: $text-color;
+    margin-block: 10px 50px;
+  }
+
+  button {
+    background-color: $accent-color;
+    width: 180px;
+    height: 45px;
+    text-align: center;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    color: $text-color;
+  }
+}
+  
