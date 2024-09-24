@@ -15,11 +15,35 @@
     <title>Weather Gaze: Explore Today's Forecast and Conditions</title>
 
     <!-- CSS STYLESHEET -->
-    <!-- <link rel="stylesheet" href="css/main.scss" /> -->
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/main.scss" />
     <link rel="stylesheet" href="css/base/reset.css" />
 
-    <!-- CSS Library -->
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="assets/images/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
 
     <!-- Font Link's -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -38,337 +62,165 @@
     />
   </head>
   <body>
+    <div class="container">
+      <div class="cloud front">
+        <span class="left-front"></span>
+        <span class="right-front"></span>
+      </div>
+      <span class="sun sunshine"></span>
+      <span class="sun"></span>
+      <div class="cloud back">
+        <span class="left-back"></span>
+        <span class="right-back"></span>
+      </div>
+    </div>
+    <!-- Layout Wrapper -->
     <div class="layout">
-      <header class="weather-header">
+      <!-- Header Section -->
+      <header class="sidebar">
+        <!-- Navigation container -->
         <nav class="main-nav">
-          <div class="nav-link-conatiner">
+          <div class="nav-link-container">
             <div class="logo-container">
-              <a href="#" class="home-link">
+              <a href="index.html" class="home-link">
                 <img
                   src="assets/images/weather_gaze_logo.png"
                   alt="WeatherGaze"
-                  class="brand-logo"
+                  class="header-brand-logo"
                 />
               </a>
             </div>
 
             <ul class="nav-list">
               <li class="nav-item">
-                <a href="weather.html" class="nav-link active-tab"
-                  ><i class="fa-solid fa-cloud-sun-rain"></i>
+                <button class="nav-link active-tab">
+                  <i class="fa-solid fa-cloud-sun-rain"></i>
                   <span>Weather</span>
-                </a>
+                </button>
               </li>
               <li class="nav-item">
-                <a href="#cities-search-bar" class="nav-link"
-                  ><i class="fa-solid fa-list"></i>
+                <button class="nav-link">
+                  <i class="fa-solid fa-list"></i>
                   <span>Cities</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="weather.html" class="nav-link"
-                  ><i class="fa-solid fa-map"></i>
-                  <span>Map</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="weather.html" class="nav-link"
-                  ><i class="fa-solid fa-sliders"></i>
-                  <span>Settings</span>
-                </a>
+                </button>
               </li>
             </ul>
           </div>
         </nav>
       </header>
-
-      <main>
-        <section class="weather-overview">
-          <div class="search-container">
-            <form action="">
+      <!-- Main Dashboard Section -->
+      <main class="main-content">
+        <header class="seacherbar-desktop-section">
+          <div class="searchbar-header">
+            <form action="#">
               <input
                 type="search"
                 name="searchbar"
                 id="searchbar"
-                placeholder="Search for cities"
+                placeholder="Search for Cities"
+                autocomplete="off"
               />
             </form>
           </div>
-          <div class="weather-container hidden">
-            <div class="current-weather-wrapper">
-              <div class="city-weather-info">
-                <div class="info">
-                  <h1 class="weather-city">Madrid</h1>
-                  <p class="precipitation-info">
-                    Chance of rain <span class="perception">0%</span>
-                  </p>
-                </div>
+        </header>
+        <!-- Center Section -->
+        <div class="main-view-layout">
+          <section class="center-section main-overview-section">
+            <div class="center-wrapper">
+              <!-- CUrrent Weather Container -->
+              <div class="current-weather-wrapper"></div>
+              <!--  -->
+              <!-- Hourly forecast Container -->
+              <div class="hourly-forecast-container">
+                <div class="hourly-forecast-wrapper">
+                  <h2 class="wrapper-title">Today's Forecast</h2>
 
-                <div class="temprature-wrapper">
-                  <h2 class="current-temp">
-                    31<span class="degree-symbol">&deg;</span>
-                  </h2>
-                </div>
-              </div>
-
-              <div class="weather-icon">
-                <img src="assets/images/sunny-icon.png" alt="Sunny-Day" />
-              </div>
-            </div>
-
-            <article class="seven-day-forecast">
-              <div class="weekly-forecast-wrapper">
-                <h2 class="article-title">7-day forecast</h2>
-
-                <div class="forecast-day-wrapper">
-                  <div class="forecast-day">
-                    <h3 class="weekday">Today</h3>
-                    <p class="weather-type">
-                      <img
-                        src="assets/images/sunny-icon.png"
-                        alt="Sunny-Day"
-                      /><span class="type-info">Sunny</span>
-                    </p>
-                    <p class="temprature">
-                      <span class="max-temp">36</span>/<span class="min-temp"
-                        >22</span
-                      >
-                    </p>
-                  </div>
-
-                  <div class="forecast-day">
-                    <h3 class="weekday">Today</h3>
-                    <p class="weather-type">
-                      <img
-                        src="assets/images/sunny-icon.png"
-                        alt="Sunny-Day"
-                      /><span class="type-info">Sunny</span>
-                    </p>
-                    <p class="temprature">
-                      <span class="max-temp">36</span>/<span class="min-temp"
-                        >22</span
-                      >
-                    </p>
-                  </div>
-
-                  <div class="forecast-day">
-                    <h3 class="weekday">Today</h3>
-                    <p class="weather-type">
-                      <img
-                        src="assets/images/sunny-icon.png"
-                        alt="Sunny-Day"
-                      /><span class="type-info">Sunny</span>
-                    </p>
-                    <p class="temprature">
-                      <span class="max-temp">36</span>/<span class="min-temp"
-                        >22</span
-                      >
-                    </p>
-                  </div>
-
-                  <div class="forecast-day">
-                    <h3 class="weekday">Today</h3>
-                    <p class="weather-type">
-                      <img
-                        src="assets/images/sunny-icon.png"
-                        alt="Sunny-Day"
-                      /><span class="type-info">Sunny</span>
-                    </p>
-                    <p class="temprature">
-                      <span class="max-temp">36</span>/<span class="min-temp"
-                        >22</span
-                      >
-                    </p>
-                  </div>
-
-                  <div class="forecast-day">
-                    <h3 class="weekday">Today</h3>
-                    <p class="weather-type">
-                      <img
-                        src="assets/images/sunny-icon.png"
-                        alt="Sunny-Day"
-                      /><span class="type-info">Sunny</span>
-                    </p>
-                    <p class="temprature">
-                      <span class="max-temp">36</span>/<span class="min-temp"
-                        >22</span
-                      >
-                    </p>
-                  </div>
-
-                  <div class="forecast-day">
-                    <h3 class="weekday">Today</h3>
-                    <p class="weather-type">
-                      <img
-                        src="assets/images/sunny-icon.png"
-                        alt="Sunny-Day"
-                      /><span class="type-info">Sunny</span>
-                    </p>
-                    <p class="temprature">
-                      <span class="max-temp">36</span>/<span class="min-temp"
-                        >22</span
-                      >
-                    </p>
-                  </div>
-
-                  <div class="forecast-day">
-                    <h3 class="weekday">Today</h3>
-                    <p class="weather-type">
-                      <img
-                        src="assets/images/sunny-icon.png"
-                        alt="Sunny-Day"
-                      /><span class="type-info">Sunny</span>
-                    </p>
-                    <p class="temprature">
-                      <span class="max-temp">36</span>/<span class="min-temp"
-                        >22</span
-                      >
-                    </p>
+                  <div class="hourly-forecast-flex">
+                    <!-- Hourly Forecast Wrap -->
+                    <!--  -->
                   </div>
                 </div>
               </div>
-            </article>
-
-            <article class="forecast-today-container">
-              <div class="today-forecast-wrapper">
-                <h2 class="article-title">Today's Forecast</h2>
-
-                <div class="time-based-forecast">
-                  <div class="forecast-hourly">
-                    <p class="forecast-time">08:00AM</p>
-                    <div class="weather-icon">
-                      <img src="assets/images/sunny-icon.png" alt="Sunny-Day" />
-                    </div>
-                    <p class="forecast-temprature">25&deg;</p>
-                  </div>
-
-                  <div class="forecast-hourly">
-                    <p class="forecast-time">08:00AM</p>
-                    <div class="weather-icon">
-                      <img src="assets/images/sunny-icon.png" alt="Sunny-Day" />
-                    </div>
-                    <p class="forecast-temprature">25&deg;</p>
-                  </div>
-
-                  <div class="forecast-hourly">
-                    <p class="forecast-time">08:00AM</p>
-                    <div class="weather-icon">
-                      <img src="assets/images/sunny-icon.png" alt="Sunny-Day" />
-                    </div>
-                    <p class="forecast-temprature">25&deg;</p>
-                  </div>
-
-                  <div class="forecast-hourly">
-                    <p class="forecast-time">08:00AM</p>
-                    <div class="weather-icon">
-                      <img src="assets/images/sunny-icon.png" alt="Sunny-Day" />
-                    </div>
-                    <p class="forecast-temprature">25&deg;</p>
-                  </div>
-
-                  <div class="forecast-hourly">
-                    <p class="forecast-time">08:00AM</p>
-                    <div class="weather-icon">
-                      <img src="assets/images/sunny-icon.png" alt="Sunny-Day" />
-                    </div>
-                    <p class="forecast-temprature">25&deg;</p>
-                  </div>
-
-                  <div class="forecast-hourly">
-                    <p class="forecast-time">08:00AM</p>
-                    <div class="weather-icon">
-                      <img src="assets/images/sunny-icon.png" alt="Sunny-Day" />
-                    </div>
-                    <p class="forecast-temprature">25&deg;</p>
-                  </div>
-
-                  <div class="forecast-hourly">
-                    <p class="forecast-time">08:00AM</p>
-                    <div class="weather-icon">
-                      <img src="assets/images/sunny-icon.png" alt="Sunny-Day" />
-                    </div>
-                    <p class="forecast-temprature">25&deg;</p>
+              <!--  -->
+              <!-- Air Condition Section -->
+              <div class="air-quality-section">
+                <div class="air-quality-container">
+                  <h2 class="wrapper-title">Air conditions</h2>
+                  <div class="weather-stats-container">
+                    <!-- Weather Stats Real Feal -->
+                    <div class="weather-stat real-feel"></div>
+                    <!--  -->
+                    <!-- Weather Stats Wind Stats -->
+                    <div class="weather-stat wind-stats"></div>
+                    <!--  -->
+                    <!-- Weather Stats Chance of Rain -->
+                    <div class="weather-stat rain-stats"></div>
+                    <!-- Weather Stats UV Index -->
+                    <div class="weather-stat uv-index-stats"></div>
+                    <!--  -->
                   </div>
                 </div>
-              </div>
-            </article>
-
-            <article class="air-quality-container">
-              <div class="air-condition-wrapper">
-                <div class="title-content">
-                  <h2 class="article-title air-quality-title">
-                    Air Conditions
-                  </h2>
-                  <button class="see-more-btn">See more</button>
-                </div>
-
-                <div class="weather-stats-container">
-                  <div class="weather-stat real-feal">
-                    <div class="icon real-feal-icon">
-                      <i class="fa-solid fa-temperature-half"></i>
-                    </div>
-                    <div class="info real-feal-info">
-                      <h3 class="title">Real Feal</h3>
-                      <p class="value">33&deg;</p>
-                    </div>
-                  </div>
-                  <div class="weather-stat wind-wrap">
-                    <div class="icon wind-icon">
-                      <i class="fa-solid fa-wind"></i>
-                    </div>
-                    <div class="info real-feal-info">
-                      <h3 class="title">Wind</h3>
-                      <p class="value">0.2 km/h</p>
-                    </div>
-                  </div>
-                  <div class="weather-stat real-feal">
-                    <div class="icon real-feal-icon">
-                      <i class="fa-solid fa-droplet"></i>
-                    </div>
-                    <div class="info real-feal-info">
-                      <h3 class="title">Chance of rain</h3>
-                      <p class="value">0%</p>
-                    </div>
-                  </div>
-                  <div class="weather-stat real-feal">
-                    <div class="icon real-feal-icon">
-                      <i class="fa-solid fa-sun"></i>
-                    </div>
-                    <div class="info real-feal-info">
-                      <h3 class="title">UV Index</h3>
-                      <p class="value">3</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section id="cities-search-bar" class="cities-search-section">
-          <div class="cities-search-container">
-            <div class="cities-list-section">
-              <div class="city-search-result">
-                <div class="weather-icon">
-                  <img src="assets/images/sunny-icon.png" alt="Sunny-Day" />
-                </div>
-                <div class="cities-name-time">
-                  <h2 class="city-name">Madrid</h2>
-                  <p class="current-time">10:23</p>
-                </div>
-                <h3 class="current-temp">31&deg;</h3>
               </div>
             </div>
-
-            <div class="city-weather-info">
-              <div class="current-city-weather"></div>
-              <div class="city-today-forecast"></div>
-              <div class="three-day-forecast"></div>
+          </section>
+          <!--  -->
+          <section class="center-section cities-search-section hidden">
+            <!-- Searched Cities Container -->
+            <div class="cities-search-container">
+              <!-- Searched Cities list -->
+              <div class="cities-list-section">
+                <!--  -->
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+          <!-- Sevenday Section  -->
+          <aside class="aside-section weather-section sevenday-forecast">
+            <div class="aside-wrapper">
+              <div class="sevenday-container">
+                <h2 class="wrapper-title">7-day forecast</h2>
+                <div class="days-forecast-container">
+                  <!--  -->
+                  <!--  -->
+                </div>
+              </div>
+            </div>
+          </aside>
+          <!--  -->
+          <!-- Cities Searched Section -->
+          <aside class="aside-section city-aside-section hidden">
+            <div class="city-aside-wrapper">
+              <!-- CUrrent Weather Container -->
+              <div
+                class="current-weather-wrapper city-current-weather-wrapper"
+              ></div>
+              <!--  -->
+              <!-- Hourly forecast Container -->
+              <div class="hourly-forecast-container">
+                <div class="hourly-forecast-wrapper no-bg no-border">
+                  <h2 class="wrapper-title">Today's Forecast</h2>
+
+                  <div class="city-hourly-forecast">
+                    <!-- Hourly Forecast Wrap -->
+                  </div>
+                </div>
+              </div>
+              <!--  -->
+              <div class="three-day-container">
+                <h2 class="wrapper-title">3-day forecast</h2>
+                <div
+                  class="days-forecast-container threeday-forecast-container"
+                >
+                  <!--  -->
+
+                  <!--  -->
+                </div>
+              </div>
+            </div>
+          </aside>
+          <!-- Map Aside Section -->
+        </div>
       </main>
     </div>
-    <script type="module" src="js/app.js"></script>
+    <script type="module" src="js/controller/controller.js"></script>
   </body>
 </html>
