@@ -1,63 +1,109 @@
 @import "../base/variables";
 
-.weather-header {
+.sidebar {
   height: 100%;
-  width: 110px;
-  font-family: $font-rubik;
-  padding: 20px 0px 20px 20px;
+  min-width: 100px;
+  grid-area: 1 / 1 / 2 / 2;
 }
 
 .main-nav {
   height: 100%;
   background-color: $secondary-bg;
   border-radius: $border-radius;
+  font-family: $font-rubik;
 }
 
-.nav-link-conatiner {
+.nav-link-container {
+  padding: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3rem;
+  gap: 20px;
+}
 
-  .logo-container {
-    margin-block: 3rem 1rem;
-    width: 50px;
+.logo-container {
+  margin-block: 25px;
+}
 
-    img {
-      width: 100%;
-    }
+.home-link {
+  &:focus {
+    outline: 2px solid $accent-color;
+    outline-offset: 2px;
+    border-radius: $border-radius;
   }
 }
 
+.header-brand-logo {
+  width: 50px;
+}
+
 .nav-list {
-  margin-top: 2rem;
-  padding-inline: 15px;
+  margin-block: 3rem;
+}
+
+.nav-link {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  color: $grey-text-color;
+  text-decoration: none;
+  gap: 12px;
+  padding-block: 20px;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
 
-  .nav-item {
-    .nav-link {
-      width: 110px;
-      color: $grey-text-color;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-decoration: none;
-      gap: 10px;
-      font-weight: 500;
+  .fa-solid {
+    font-size: 1.3em;
+  }
 
-      i {
-        font-size: 1.2em;
-      }
-      &:hover {
-        color: $text-color;
-      }
+  &:hover {
+    color: $text-color;
+  }
 
-      &.active-tab {
-        color: $text-color;
-      }
-    }
+  &:focus {
+    outline: 1px solid $accent-color;
+  }
+}
+
+.active-tab {
+  color: $text-color;
+}
+
+@media screen and (max-width: 1250px) {
+  .sidebar {
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.337);
+    z-index: 111;
+  }
+  .main-nav {
+    border-radius: 0;
+  }
+  .nav-link-container {
+    height: 100%;
+    padding: 0;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .logo-container {
+    display: none;
+  }
+  .nav-list {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+  }
+  .nav-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
   }
 }
