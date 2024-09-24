@@ -586,4 +586,34 @@
     height: 100%;
     width: 100%;
   }
+
+  .forecast-hourly {
+    flex: 0 0 35%;
+  }
+
+  .weather-type {
+    img {
+      width: 80px;
+    }
+    .type-info {
+      display: none;
+      font-size: 1.05em;
+    }
+  }
+  .weather-stats-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .weather-stat {
+    .info {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .value {
+    }
+  }
 }
