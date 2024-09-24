@@ -2,6 +2,11 @@
 
 body {
   background-color: $main-bg;
+  height: 100vh;
+}
+
+.welcome-section {
+  overflow: hidden;
 }
 
 .welcome-page-container {
@@ -10,6 +15,9 @@ body {
   grid-template-rows: 1fr;
   gap: 20px;
   font-family: $font-rubik;
+  // transform: rotateX(80deg);
+  // opacity: 0;
+  // pointer-events: none;
 }
 
 .welcome-logo-container {
@@ -54,6 +62,14 @@ body {
     margin-block: 10px 50px;
   }
 
+  .get-started-link {
+    &:focus {
+      outline: 3px solid $accent-color;
+      border-radius: $border-radius;
+      outline-offset: 2px;
+    }
+  }
+
   button {
     background-color: $accent-color;
     width: 180px;
@@ -65,6 +81,17 @@ body {
     font-size: 1em;
     font-weight: 600;
     color: $text-color;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      filter: contrast(2);
+    }
   }
 }
-  
+
+// Hide Show Content
+
+.flip-in-hor {
+  animation: flip-in-hor-bottom 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  pointer-events: auto;
+}
