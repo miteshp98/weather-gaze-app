@@ -83,5 +83,3 @@ After the installation steps, you can start the development server by running:
 ```bash
 npm start
 ```
-
-
