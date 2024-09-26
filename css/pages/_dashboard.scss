@@ -1,619 +1,246 @@
 @import "../base/variables";
 
+@mixin heading-font($size) {
+  font-weight: 700;
+  color: $text-color;
+  font-size: $size;
+}
+
+@mixin wrap-heading {
+  font-family: $font-rubik;
+  font-weight: 700;
+  color: $grey-text-color;
+  font-size: 1.05em;
+  text-transform: uppercase;
+}
+
+@mixin flex($direction, $align, $justify, $gap) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+  gap: $gap;
+}
+
 .main-content {
   height: 100%;
   grid-area: 1 / 2 / 2 / 3;
-}
-
-.main-view-layout {
-  display: grid;
-  grid-template-columns: 1fr 0.4fr;
-  grid-template-rows: 1fr;
-  gap: 15px;
+  padding: 10px;
   font-family: $font-rubik;
-  color: $grey-text-color;
 }
 
-// Center Layout
-.center-section {
+// Weather-section Styling
+
+.weather-section {
   height: 100%;
-}
-
-.center-wrapper {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, 1.2fr);
+  grid-template-columns: 1.4fr 0.6fr;
+  grid-template-rows: repeat(3, auto);
   gap: 15px;
 }
 
-// current-weather-wrapper
-
-.current-weather-wrapper {
-  height: 280px;
-  padding-inline: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.city-weather-info {
+.main-container {
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
 }
 
-.city-info {
-  .weather-city {
-    font-size: clamp(2em, 4vw, 3.8em);
-    font-weight: 700;
+// current-weather-container
+.current-weather-section {
+  height: 85%;
+  grid-area: 1 / 1 / 2 / 2;
+  background-color: $secondary-bg;
+  border-radius: $border-radius;
+  padding: 25px;
+
+  @include flex(row, center, space-between, 10px);
+}
+
+.weather-info-wrapper {
+  height: 100%;
+  margin-left: 20px;
+  @include flex(column, normal, space-around, 0px);
+
+  .city-info {
+    padding: 5px;
+    .city-title {
+      padding-bottom: 5px;
+      @include heading-font(3em);
+    }
+    .rain-probability {
+      color: $grey-text-color;
+    }
+  }
+  .current-temperature {
+    @include heading-font(3.5em);
     color: $text-color;
-    margin-bottom: 5px;
   }
 }
 
-.temperature-wrapper {
-  font-size: clamp(2em, 4vw, 3.9em);
-  font-weight: 700;
-  color: $text-color;
-}
-
-.weather-icon {
-  width: 220px;
+.weather-icon-container {
+  width: 250px;
+  margin-right: 4%;
   img {
     width: 100%;
   }
 }
 
-// Hourly Wrapper Styling
-.hourly-forecast-container {
-  height: 280px;
-}
-
-.hourly-forecast-wrapper {
-  padding: 30px;
+// hourly-weather-container
+.hourly-weather-section {
+  height: 82%;
+  grid-area: 2 / 1 / 3 / 2;
   background-color: $secondary-bg;
   border-radius: $border-radius;
+  padding: 25px;
 }
 
-.wrapper-title {
-  text-transform: uppercase;
-  font-size: 1.05em;
-  font-weight: 600;
+.hourly-forecast-wrapper,
+.aircondition-wrapper,
+.weekly-weather-wrapper {
+  height: 100%;
+  @include flex(column, normal, none, 20px);
 }
 
-.hourly-forecast-flex {
-  width: 97%;
-  margin: 23px auto;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
+.forecast-title {
+  padding: 5px 20px;
+  @include wrap-heading;
+}
+
+.forecast-slider {
+  height: 100%;
+  padding-inline: 20px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  white-space: nowrap;
+
+  @include flex(row, stretch, none, 0px);
+
+  .forecast-hour {
+    height: 100%;
+    flex: 0 0 150px;
+    border-right: 1px solid $border-color;
+    @include flex(column, center, space-around, 25px);
+
+    .forecast-time {
+      font-size: 1.1em;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: $grey-text-color;
+    }
+
+    .forecast-icon {
+      width: 60px;
+    }
+
+    .forecast-temperature {
+      font-size: 2em;
+      font-weight: 600;
+      color: $text-color;
+    }
+  }
 
   &::-webkit-scrollbar {
     display: none;
   }
 }
 
-.forecast-hourly {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  flex: 0 0 14%;
-  gap: 2rem;
-  font-weight: 600;
-  border-right: 1px solid $border-color;
-}
-
-.forecast-time {
-  font-size: 1.05em;
-}
-
-.hourly-icon {
-  width: 60px;
-}
-
-.forecast-temperature {
-  font-size: 2em;
-  color: $text-color;
-}
-
-// air-quality-section
+// aircondition-container
 
 .air-quality-section {
-  height: 100%;
-}
-
-.air-quality-container {
-  padding: 25px;
-  height: 83%;
+  height: 81.5%;
+  grid-area: 3 / 1 / 4 / 2;
   background-color: $secondary-bg;
   border-radius: $border-radius;
+  padding: 25px;
 }
 
-.weather-stats-container {
-  margin-block: 40px;
-  height: 70%;
+.section-header {
+  @include flex(row, center, space-between, 0px);
+
+  button {
+    background-color: $accent-color;
+    border: none;
+    border-radius: 50px;
+    height: 30px;
+    width: 100px;
+    color: $text-color;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(1.2);
+    }
+  }
+}
+
+.air-quality-stats {
+  height: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 0.5fr);
+  grid-template-rows: repeat(2, 0.5fr);
   gap: 20px;
 }
 
-.weather-stat {
-  display: flex;
-  gap: 35px;
+.air-quality-stat {
+  @include flex(row, stretch, none, 20px);
+  color: $grey-text-color;
 
-  .info {
+  .stat-icon {
     font-size: 1.5em;
   }
 
-  .value {
-    margin-top: 10px;
-    color: $text-color;
-    font-weight: 700;
-    font-size: 1.3em;
+  .stat-details {
+    .stat-title {
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      font-size: 1.4em;
+    }
+    .stat-value {
+      font-size: 2em;
+      font-weight: 600;
+      color: $text-color;
+    }
   }
 }
 
-.icon {
-  font-size: 2em;
-}
+// weekly-weather-container
 
-//  Sevenday Forecast
-
-.aside-section {
-  height: 100%;
-}
-
-.aside-wrapper {
-  height: 95%;
-  padding: 15px 0 0;
-}
-
-.sevenday-container {
+.weekly-forecast-container {
+  height: 94.5%;
   padding: 25px;
-  height: 97%;
   background-color: $secondary-bg;
   border-radius: $border-radius;
+  grid-area: 1 / 2 / 4 / 3;
 }
 
-.days-forecast-container {
-  margin-block: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.forecast-day {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 15px;
-  font-weight: 600;
-  border-bottom: 1px solid $border-color;
-  height: 100px;
-
-  .weekday {
-    font-size: 1.1em;
-  }
-
-  .weather-type {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-
-    img {
-      width: 50px;
-    }
-    .type-info {
-      font-size: 1.1em;
-      color: $text-color;
-    }
-  }
-
-  .temprature {
-    font-size: 1.1em;
-    .max-temp {
-      color: $text-color;
-    }
-  }
-
-  &:last-child {
-    border: none;
-  }
-}
-
-// Cities Search Section
-
-.cities-search-section {
+.forecast-week-wrap {
   height: 100%;
-}
-
-.cities-search-container {
+  padding-inline: 25px;
   margin-block: 20px;
+  @include flex(column, stretch, none, 0px);
 }
 
-.cities-list-section {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.city-search-result {
-  display: flex;
-  align-items: center;
-  background-color: $secondary-bg;
-  border-radius: $border-radius;
-  height: 100px;
-  padding: 10px 30px;
-  gap: 30px;
-  cursor: pointer;
-  border: 1px solid $border-color;
-  transition: all 0.3s ease-in-out;
-  position: relative;
-
-  .city-search-w-icon {
-    width: 70px;
-  }
-
-  .cities-name-time {
-    flex-grow: 1;
-    .city-name {
-      font-size: 2em;
-      font-weight: 700;
-      color: $text-color;
-    }
-  }
-
-  .fa-location-arrow {
-    font-size: 1.8em;
-  }
-
-  .current-temp {
-    font-size: 2.5em;
-    font-weight: 700;
-    color: $text-color;
-  }
-
-  &:hover {
-    border-color: $accent-color;
-    background-color: transparent;
-  }
-
-  .remove-button {
-    display: none;
-    background-color: transparent;
-    border: none;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    cursor: pointer;
-    .fa-xmark {
-      font-size: 2em;
-      color: $grey-text-color;
-    }
-  }
-}
-
-// Aside City Section
-
-.city-aside-section {
-  height: 100%;
-}
-
-.city-aside-wrapper {
-  height: 95%;
-  padding: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  .current-weather-wrapper {
-    .city-weather-info {
-      .city-info {
-        h1 {
-          font-size: 2.6em;
-        }
-      }
-      .temperature-wrapper {
-        .current-temp {
-          font-size: 1.1em;
-        }
-      }
-    }
-
-    .weather-icon {
-      width: 170px;
-    }
-  }
-}
-
-.no-bg {
-  background-color: transparent;
-  padding: 20px;
-}
-
-.no-border {
-  border-radius: 0;
-}
-
-.city-hourly-forecast {
-  margin-block: 20px;
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: center;
-
-  .forecast-hourly {
-    flex: 0 0 150px;
-    &:last-child {
-      border: none;
-    }
-  }
-}
-
-// 3 Day Forecast
-
-.three-forecast-day {
-  height: 90px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-inline: 20px;
-  font-weight: 600;
+.forecast-day-item{
+  padding-block: 40px;
+  color: $grey-text-color;
+  font-size: 1.1em;
   border-bottom: 1px solid $border-color;
+  @include flex(row, center, space-between, 20px);
 
-  .weekday {
-    font-size: 1.1em;
-  }
-  .weather-type {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-
+  .day-condition {
+    @include flex(row, center, space-between, 20px);
     img {
-      width: 50px;
+      width: 40px;
     }
-    .type-info {
-      font-size: 1.05em;
-    }
-  }
-  .temprature {
-    font-size: 1.1em;
-    .max-temp {
+    span {
+      font-weight: 600;
       color: $text-color;
     }
   }
-  &:last-child {
-    border: none;
-  }
-}
 
-@media screen and (max-width: 1440px) {
-  .main-view-layout {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-  }
-
-  .center-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .city-aside-section {
-    display: none;
-  }
-  .weather-icon {
-    width: 200px;
-    img {
-      width: 100%;
-    }
-  }
-
-  .city-aside-wrapper {
-    .current-weather-wrapper {
-      .city-weather-info {
-        .city-info {
-          h1 {
-            font-size: 2.8em;
-          }
-        }
-        .temperature-wrapper {
-          .current-temp {
-            font-size: 0.9em;
-          }
-        }
-      }
-
-      .weather-icon {
-        width: 150px;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .city-info {
-    .weather-city {
-      font-size: 3.5em;
-    }
-  }
-
-  .temperature-wrapper {
-    font-size: 3.5em;
-  }
-  .weather-icon {
-    width: 30%;
-    img {
-      width: 100%;
-    }
-  }
-}
-
-@media screen and (max-width: 930px) {
-  .forecast-hourly {
-    flex: 0 0 25%;
-    &:nth-last-of-type(3) {
-      display: none;
-    }
-
-    &:nth-last-of-type(4) {
-      display: none;
-    }
-
-    &:nth-last-of-type(5) {
-      display: none;
-    }
-  }
-
-  .weather-icon {
-    width: 40%;
-  }
-}
-
-@media screen and (max-width: 700px) {
-  .current-weather-wrapper {
-    margin-block: 25px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-  .city-weather-info {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-inline: 20px;
-  }
-
-  .city-info {
-    .weather-city {
-      font-size: 3em;
-    }
-  }
-
-  .temperature-wrapper {
-    font-size: 3.3em;
-  }
-
-  .weather-icon {
-    width: 40%;
-  }
-
-  .weather-stat {
-    .info {
-      font-size: 1.3em;
-    }
-    .value {
-      font-size: 1.1em;
-    }
-  }
-
-  .icon {
-    font-size: 1.5em;
-  }
-}
-
-@media screen and (max-width: 550px) {
-  .current-weather-wrapper {
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .precipitation-info {
-    text-align: center;
-  }
-  .city-weather-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    padding-inline: 20px;
-  }
-
-  .city-info {
-    .weather-city {
-      font-size: 3em;
-    }
-  }
-
-  .temperature-wrapper {
-    font-size: 3.5em;
-  }
-
-  .forecast-hourly {
-    flex: 0 0 30%;
-    &:nth-last-of-type(2) {
-      display: none;
-    }
-  }
-
-  .weather-stats-container {
-    margin-bottom: 10px;
-  }
-
-  .weather-stat {
-    .info {
-      font-size: 1.3em;
-    }
-    .value {
-      font-size: 1em;
-    }
-  }
-
-  .cities-list-section {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;
-  }
-  .city-search-result {
-    padding-block: 20px;
-    height: 100%;
-    width: 180px;
-    flex-direction: column;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .city-search-result {
-    height: 100%;
-    width: 100%;
-  }
-
-  .forecast-hourly {
-    flex: 0 0 35%;
-  }
-
-  .weather-type {
-    img {
-      width: 80px;
-    }
-    .type-info {
-      display: none;
-      font-size: 1.05em;
-    }
-  }
-  .weather-stats-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  .weather-stat {
-    .info {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .value {
+  .day-temperature {
+    .temperature-high {
+      font-weight: 600;
+      color: $text-color;
     }
   }
 }
