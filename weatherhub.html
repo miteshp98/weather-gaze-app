@@ -236,30 +236,86 @@
         <!--  -->
         <section class="cities-section">
           <!-- Searchbar Header -->
-          <div class="searchbar-header-section">
+          <div class="city-searchbar-header">
             <form action="#">
-              <input type="search" name="searchcity" id="searchbar" />
+              <input type="search" name="searchcity" id="city-search-input" />
             </form>
           </div>
           <!--  -->
           <!-- Search Result Section -->
-          <div class="search-result-container">
-            <div class="search-result">
+          <div class="city-search-result-container">
+            <div class="city-search-result">
               <img
                 src="assets/icons/weathericon/clear-day.svg"
                 alt="clear-day"
-                class="condition-icon"
+                class="weather-condition-icon"
               />
 
-              <div class="name-time-wrap">
-                <h2 class="city-name">Ahmedabad</h2>
-                <p class="current-time">10:30</p>
+              <div class="city-name-time-wrapper">
+                <h2 class="city-name-label">Ahmedabad</h2>
+                <p class="city-current-time">10:30</p>
               </div>
-              <h3 class="current-temp">31&deg;</h3>
+              <h3 class="city-current-temperature">31&deg;</h3>
             </div>
           </div>
 
           <!-- Aside section -->
+          <div class="city-overview-section">
+            <!--  -->
+            <div class="city-current-forecast-container">
+              <div class="current-forecast-wrapper">
+                <div class="current-city-info-wrap">
+                  <h2 class="city-name">Ahmedabad</h2>
+                  <p class="rain-probability">Chance of rain 0%</p>
+                </div>
+                <h3 class="city-temp">31&deg;</h3>
+              </div>
+
+              <img
+                src="assets/icons/weathericon/clear-day.svg"
+                alt="clear-day"
+                class="current-weather-icon"
+              />
+            </div>
+            <div class="city-hourly-forecast-container">
+              <h2 class="city-wrapper-title">today's forecast</h2>
+
+              <div class="hourly-forecast-wrapper">
+                <div class="city-hourly-forecast">
+                  <p class="city-current-time">2:00AM</p>
+                  <img
+                    src="assets/icons/weathericon/clear-day.svg"
+                    alt="clear-day"
+                    class="condition-icon"
+                  />
+                  <p class="city-current-temp">25&deg;</p>
+                </div>
+
+                <div class="city-hourly-forecast">
+                  <p class="city-current-time">2:00AM</p>
+                  <img
+                    src="assets/icons/weathericon/clear-day.svg"
+                    alt="clear-day"
+                    class="condition-icon"
+                  />
+                  <p class="city-current-temp">25&deg;</p>
+                </div>
+
+                <div class="city-hourly-forecast">
+                  <p class="city-current-time">2:00AM</p>
+                  <img
+                    src="assets/icons/weathericon/clear-day.svg"
+                    alt="clear-day"
+                    class="condition-icon"
+                  />
+                  <p class="city-current-temp">25&deg;</p>
+                </div>
+              </div>
+            </div>
+            <div class="city-weekly-forecast-container">
+              <h2 class="city-wrapper-title">3-day forecast</h2>
+            </div>
+          </div>
         </section>
       </main>
     </div>
