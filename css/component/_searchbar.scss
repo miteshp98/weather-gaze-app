@@ -1,7 +1,8 @@
 @import "../base/variables";
 
-.seacherbar-desktop-section {
+.searchbar-header-section {
   width: 100%;
+  grid-area: 1 / 1 / 2 / 2;
 }
 
 #searchbar {
