@@ -15,7 +15,7 @@
     <title>Weather Gaze: Explore Today's Forecast and Conditions</title>
 
     <!-- CSS STYLESHEET -->
-    <link rel="stylesheet" href="css/main.scss" />
+    <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/base/reset.css" />
 
     <!-- Favicon -->
@@ -62,165 +62,207 @@
     />
   </head>
   <body>
-    <div class="container">
-      <div class="cloud front">
-        <span class="left-front"></span>
-        <span class="right-front"></span>
-      </div>
-      <span class="sun sunshine"></span>
-      <span class="sun"></span>
-      <div class="cloud back">
-        <span class="left-back"></span>
-        <span class="right-back"></span>
-      </div>
-    </div>
-    <!-- Layout Wrapper -->
+    <!-- Dark-Light Switch -->
+    <!--  -->
+    <!-- Header Part -->
     <div class="layout">
-      <!-- Header Section -->
       <header class="sidebar">
-        <!-- Navigation container -->
-        <nav class="main-nav">
-          <div class="nav-link-container">
-            <div class="logo-container">
-              <a href="index.html" class="home-link">
+        <div class="header-container">
+          <nav class="main-nav">
+            <div class="nav-brand-wrapper">
+              <a href="index.html">
                 <img
                   src="assets/images/weather_gaze_logo.png"
-                  alt="WeatherGaze"
-                  class="header-brand-logo"
+                  alt="weather_gaze"
                 />
               </a>
             </div>
 
             <ul class="nav-list">
               <li class="nav-item">
-                <button class="nav-link active-tab">
+                <a href="#" class="nav-link active-tab">
                   <i class="fa-solid fa-cloud-sun-rain"></i>
                   <span>Weather</span>
-                </button>
+                </a>
               </li>
+
               <li class="nav-item">
-                <button class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="fa-solid fa-list"></i>
                   <span>Cities</span>
-                </button>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fa-solid fa-map"></i>
+                  <span>Map</span>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fa-solid fa-sliders"></i>
+                  <span>Settings</span>
+                </a>
               </li>
             </ul>
-          </div>
-        </nav>
+          </nav>
+        </div>
       </header>
-      <!-- Main Dashboard Section -->
+      <!-- Main - Content -->
       <main class="main-content">
-        <header class="seacherbar-desktop-section">
-          <div class="searchbar-header">
-            <form action="#">
-              <input
-                type="search"
-                name="searchbar"
-                id="searchbar"
-                placeholder="Search for Cities"
-                autocomplete="off"
-              />
-            </form>
-          </div>
-        </header>
-        <!-- Center Section -->
-        <div class="main-view-layout">
-          <section class="center-section main-overview-section">
-            <div class="center-wrapper">
-              <!-- CUrrent Weather Container -->
-              <div class="current-weather-wrapper"></div>
-              <!--  -->
-              <!-- Hourly forecast Container -->
-              <div class="hourly-forecast-container">
-                <div class="hourly-forecast-wrapper">
-                  <h2 class="wrapper-title">Today's Forecast</h2>
-
-                  <div class="hourly-forecast-flex">
-                    <!-- Hourly Forecast Wrap -->
-                    <!--  -->
-                  </div>
-                </div>
+        <!-- Weather-section -->
+        <section class="weather-section hidden">
+          <!-- Current weather -->
+          <div class="current-weather-section main-container">
+            <div class="weather-info-wrapper">
+              <div class="city-info">
+                <h1 class="city-title">Ahmedabad</h1>
+                <p class="rain-probability">Chance of rain: 0%</p>
               </div>
-              <!--  -->
-              <!-- Air Condition Section -->
-              <div class="air-quality-section">
-                <div class="air-quality-container">
-                  <h2 class="wrapper-title">Air conditions</h2>
-                  <div class="weather-stats-container">
-                    <!-- Weather Stats Real Feal -->
-                    <div class="weather-stat real-feel"></div>
-                    <!--  -->
-                    <!-- Weather Stats Wind Stats -->
-                    <div class="weather-stat wind-stats"></div>
-                    <!--  -->
-                    <!-- Weather Stats Chance of Rain -->
-                    <div class="weather-stat rain-stats"></div>
-                    <!-- Weather Stats UV Index -->
-                    <div class="weather-stat uv-index-stats"></div>
-                    <!--  -->
-                  </div>
+              <h2 class="current-temperature">31&deg;</h2>
+            </div>
+            <div class="weather-icon-container">
+              <img
+                src="assets/icons/weathericon/clear-day.svg"
+                alt="clear-day"
+              />
+            </div>
+          </div>
+          <!-- Hourly Content -->
+          <div class="hourly-weather-section main-container">
+            <div class="hourly-forecast-wrapper">
+              <h2 class="forecast-title">today's forecast</h2>
+
+              <div class="forecast-slider">
+                <div class="forecast-hour">
+                  <p class="forecast-time">6:00AM</p>
+                  <img
+                    src="assets/icons/weathericon/clear-day.svg"
+                    alt="clear-day"
+                    class="forecast-icon"
+                  />
+                  <h3 class="forecast-temperature">25&deg;</h3>
                 </div>
               </div>
             </div>
-          </section>
-          <!--  -->
-          <section class="center-section cities-search-section hidden">
-            <!-- Searched Cities Container -->
-            <div class="cities-search-container">
-              <!-- Searched Cities list -->
-              <div class="cities-list-section">
+          </div>
+          <!-- Air Condition Content -->
+          <div class="air-quality-section main-container">
+            <div class="air-quality-wrapper">
+              <div class="section-header">
+                <h2 class="forecast-title">Air conditions</h2>
+                <button class="see-more-btn">See more</button>
+              </div>
+
+              <div class="air-quality-stats">
+                <div class="air-quality-stat real-feel-stat">
+                  <p class="stat-icon">
+                    <i class="fa-solid fa-temperature-half"></i>
+                  </p>
+
+                  <div class="stat-details">
+                    <h2 class="stat-title">Real Feel</h2>
+                    <p class="stat-value">30&deg;</p>
+                  </div>
+                </div>
+
+                <div class="air-quality-stat wind-stat">
+                  <p class="stat-icon">
+                    <i class="fa-solid fa-wind"></i>
+                  </p>
+
+                  <div class="stat-details">
+                    <h2 class="stat-title">Wind</h2>
+                    <p class="stat-value">12 km/h</p>
+                  </div>
+                </div>
+
+                <div class="air-quality-stat rain-chance-stat">
+                  <p class="stat-icon">
+                    <i class="fa-solid fa-droplet"></i>
+                  </p>
+
+                  <div class="stat-details">
+                    <h2 class="stat-title">Chance of rain</h2>
+                    <p class="stat-value">0%</p>
+                  </div>
+                </div>
+
+                <div class="air-quality-stat uv-index-stat">
+                  <p class="stat-icon">
+                    <i class="fa-solid fa-sun"></i>
+                  </p>
+
+                  <div class="stat-details">
+                    <h2 class="stat-title">UV index</h2>
+                    <p class="stat-value">3</p>
+                  </div>
+                </div>
+
+                <!-- Weather see more modal stats -->
+
                 <!--  -->
               </div>
             </div>
-          </section>
-          <!-- Sevenday Section  -->
-          <aside class="aside-section weather-section sevenday-forecast">
-            <div class="aside-wrapper">
-              <div class="sevenday-container">
-                <h2 class="wrapper-title">7-day forecast</h2>
-                <div class="days-forecast-container">
-                  <!--  -->
-                  <!--  -->
+          </div>
+          <!-- Week Weather Content -->
+          <div class="weekly-forecast-container main-container">
+            <div class="weekly-forecast-wrapper">
+              <h2 class="forecast-title">7-day forecast</h2>
+
+              <div class="forecast-week-wrap">
+                <div class="forecast-day-item">
+                  <p class="day-label">Today</p>
+                  <p class="day-condition">
+                    <img
+                      src="assets/icons/weathericon/clear-day.svg"
+                      alt="clear-day"
+                    />
+                    <span class="condition-type">Sunny</span>
+                  </p>
+                  <p class="day-temperature">
+                    <span class="temperature-high">25</span>/<span
+                      class="temperature-low"
+                      >10</span
+                    >
+                  </p>
                 </div>
               </div>
             </div>
-          </aside>
+          </div>
+        </section>
+        <!--  -->
+        <section class="cities-section">
+          <!-- Searchbar Header -->
+          <div class="searchbar-header-section">
+            <form action="#">
+              <input type="search" name="searchcity" id="searchbar" />
+            </form>
+          </div>
           <!--  -->
-          <!-- Cities Searched Section -->
-          <aside class="aside-section city-aside-section hidden">
-            <div class="city-aside-wrapper">
-              <!-- CUrrent Weather Container -->
-              <div
-                class="current-weather-wrapper city-current-weather-wrapper"
-              ></div>
-              <!--  -->
-              <!-- Hourly forecast Container -->
-              <div class="hourly-forecast-container">
-                <div class="hourly-forecast-wrapper no-bg no-border">
-                  <h2 class="wrapper-title">Today's Forecast</h2>
+          <!-- Search Result Section -->
+          <div class="search-result-container">
+            <div class="search-result">
+              <img
+                src="assets/icons/weathericon/clear-day.svg"
+                alt="clear-day"
+                class="condition-icon"
+              />
 
-                  <div class="city-hourly-forecast">
-                    <!-- Hourly Forecast Wrap -->
-                  </div>
-                </div>
+              <div class="name-time-wrap">
+                <h2 class="city-name">Ahmedabad</h2>
+                <p class="current-time">10:30</p>
               </div>
-              <!--  -->
-              <div class="three-day-container">
-                <h2 class="wrapper-title">3-day forecast</h2>
-                <div
-                  class="days-forecast-container threeday-forecast-container"
-                >
-                  <!--  -->
-
-                  <!--  -->
-                </div>
-              </div>
+              <h3 class="current-temp">31&deg;</h3>
             </div>
-          </aside>
-          <!-- Map Aside Section -->
-        </div>
+          </div>
+
+          <!-- Aside section -->
+        </section>
       </main>
     </div>
-    <script type="module" src="js/controller/controller.js"></script>
+    <!-- <script type="module" src="js/controller/controller.js"></script> -->
   </body>
 </html>
