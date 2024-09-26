@@ -7,22 +7,42 @@
 // Pages
 @import "./pages/home";
 @import "./pages/dashboard";
+@import "./pages/cities";
 
 .layout {
+  width: 100%;
   display: grid;
-  grid-template-columns: 0.1fr 2fr;
-  grid-template-rows: 1fr;
-  gap: 15px;
-  padding: 15px;
+  grid-template-columns: 0.1fr 1.8fr;
+  grid-template-rows: auto;
+  gap: 8px;
+}
+
+body {
+  --sb-track-color: #232e33;
+  --sb-thumb-color: #2666cf;
+  --sb-size: 10px;
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 5px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
 }
 
 .hidden {
   display: none;
-}
-
-@media screen and (max-width: 1250px) {
-  .layout {
-    display: block;
-    padding-bottom: 5rem;
-  }
 }
