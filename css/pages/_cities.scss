@@ -1,0 +1,74 @@
+@import "../base/variables";
+
+@mixin heading-font($size) {
+  font-weight: 700;
+  color: $text-color;
+  font-size: $size;
+}
+
+@mixin wrap-heading {
+  font-family: $font-rubik;
+  font-weight: 700;
+  color: $grey-text-color;
+  font-size: 1.05em;
+  text-transform: uppercase;
+}
+
+@mixin flex($direction, $align, $justify, $gap) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+  gap: $gap;
+}
+
+.cities-section {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  grid-template-rows: 0.1fr 1.9fr;
+  gap: 15px;
+}
+
+.search-result-container {
+  height: 100%;
+  grid-area: 2 / 1 / 3 / 2;
+
+  @include flex(column, normal, none, 20px);
+}
+
+.search-result {
+  background-color: $secondary-bg;
+  border-radius: $border-radius;
+  height: 120px;
+  padding-inline: 25px;
+  cursor: pointer;
+  border: 1px solid $border-color;
+  @include flex(row, center, none, 25px);
+  transition: all 0.2s ease-in-out;
+
+  img {
+    width: 80px;
+  }
+
+  .name-time-wrap {
+    flex-grow: 1;
+    .city-name {
+      margin-block: 0 5px;
+      @include heading-font(2em);
+    }
+    .current-time {
+      color: $grey-text-color;
+    }
+  }
+
+  .current-temp {
+    @include heading-font(2em);
+    color: $text-color;
+  }
+
+  &:hover {
+    border-color: $accent-color;
+    background-color: transparent;
+  }
+}
