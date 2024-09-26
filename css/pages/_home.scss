@@ -15,9 +15,6 @@ body {
   grid-template-rows: 1fr;
   gap: 20px;
   font-family: $font-rubik;
-  transform: rotateX(80deg);
-  opacity: 0;
-  pointer-events: none;
 }
 
 .welcome-logo-container {
@@ -52,7 +49,7 @@ body {
   }
 
   h1 {
-    color: $heading-color;
+    color: $text-color;
     font-weight: 700;
     font-size: 2.5em;
   }
@@ -86,25 +83,6 @@ body {
     &:hover {
       filter: contrast(2);
     }
-  }
-}
-
-// Hide Show Content
-
-.welcome-page-container {
-  animation: flip-in-hor-bottom 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  pointer-events: auto;
-}
-@keyframes flip-in-hor-bottom {
-  0% {
-    -webkit-transform: rotateX(80deg);
-    transform: rotateX(80deg);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: rotateX(0);
-    transform: rotateX(0);
-    opacity: 1;
   }
 }
 
