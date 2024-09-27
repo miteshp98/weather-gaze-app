@@ -113,7 +113,7 @@
       <!-- Main - Content -->
       <main class="main-content">
         <!-- Weather-section -->
-        <section class="weather-section hidden">
+        <section class="weather-section">
           <!-- Current weather -->
           <div class="current-weather-section main-container">
             <div class="weather-info-wrapper">
@@ -132,7 +132,7 @@
           </div>
           <!-- Hourly Content -->
           <div class="hourly-weather-section main-container">
-            <div class="hourly-forecast-wrapper">
+            <div class="w-hourly-forecast-wrapper">
               <h2 class="forecast-title">today's forecast</h2>
 
               <div class="forecast-slider">
@@ -234,7 +234,7 @@
           </div>
         </section>
         <!--  -->
-        <section class="cities-section">
+        <section class="cities-section hidden">
           <!-- Searchbar Header -->
           <div class="city-searchbar-header">
             <form action="#">
@@ -277,6 +277,7 @@
                 class="current-weather-icon"
               />
             </div>
+            <!--  -->
             <div class="city-hourly-forecast-container">
               <h2 class="city-wrapper-title">today's forecast</h2>
 
@@ -290,30 +291,173 @@
                   />
                   <p class="city-current-temp">25&deg;</p>
                 </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="city-threeday-forecast-container">
+              <h2 class="city-wrapper-title">3-day forecast</h2>
 
-                <div class="city-hourly-forecast">
-                  <p class="city-current-time">2:00AM</p>
-                  <img
-                    src="assets/icons/weathericon/clear-day.svg"
-                    alt="clear-day"
-                    class="condition-icon"
-                  />
-                  <p class="city-current-temp">25&deg;</p>
-                </div>
-
-                <div class="city-hourly-forecast">
-                  <p class="city-current-time">2:00AM</p>
-                  <img
-                    src="assets/icons/weathericon/clear-day.svg"
-                    alt="clear-day"
-                    class="condition-icon"
-                  />
-                  <p class="city-current-temp">25&deg;</p>
+              <div class="threeday-forecast-wrapper">
+                <div class="forecast-day">
+                  <p class="forecast-weekday">Today</p>
+                  <p class="forecast-condition">
+                    <img
+                      src="assets/icons/weathericon/clear-day.svg"
+                      alt="clear-day"
+                    />
+                    <span class="condition-label">Sunny</span>
+                  </p>
+                  <p class="forecast-temperature">
+                    <span class="temp-high">25</span>/<span class="temp-low"
+                      >10</span
+                    >
+                  </p>
                 </div>
               </div>
             </div>
-            <div class="city-weekly-forecast-container">
-              <h2 class="city-wrapper-title">3-day forecast</h2>
+          </div>
+        </section>
+        <!-- Map Section -->
+        <section class="map-section hidden">
+          <!-- Map Container -->
+          <div class="map-container">
+            <div id="map"></div>
+          </div>
+          <!-- Aside Section -->
+          <div class="map-aside-section">
+            <div class="bookmarked-city-container">
+              <div class="bookmarked-city">
+                <img
+                  src="assets/icons/weathericon/clear-day.svg"
+                  alt="clear-day"
+                  class="weather-condition-icon"
+                />
+
+                <div class="city-name-wrapper">
+                  <h2 class="city-name-label">Ahmedabad</h2>
+                  <button class="see-location">
+                    <i class="fa-solid fa-location-arrow"></i>
+                  </button>
+                </div>
+                <h3 class="city-current-temperature">31&deg;</h3>
+              </div>
+
+              <div class="bookmarked-city">
+                <img
+                  src="assets/icons/weathericon/clear-day.svg"
+                  alt="clear-day"
+                  class="weather-condition-icon"
+                />
+
+                <div class="city-name-wrapper">
+                  <h2 class="city-name-label">Ahmedabad</h2>
+                  <button class="see-location">
+                    <i class="fa-solid fa-location-arrow"></i>
+                  </button>
+                </div>
+                <h3 class="city-current-temperature">31&deg;</h3>
+              </div>
+
+              <div class="bookmarked-city">
+                <img
+                  src="assets/icons/weathericon/clear-day.svg"
+                  alt="clear-day"
+                  class="weather-condition-icon"
+                />
+
+                <div class="city-name-wrapper">
+                  <h2 class="city-name-label">Ahmedabad</h2>
+                  <button class="see-location">
+                    <i class="fa-solid fa-location-arrow"></i>
+                  </button>
+                </div>
+                <h3 class="city-current-temperature">31&deg;</h3>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--  -->
+        <!-- Setting Section -->
+        <section class="settings-section hidden">
+          <div class="settings-container">
+            <!-- Units Section -->
+            <div class="units-settings">
+              <h2 class="settings-title">Units</h2>
+              <div class="settings-options">
+                <div class="setting-option temperature-settings">
+                  <h3 class="option-title">Temperature</h3>
+                  <div class="buttons-group temperature-buttons">
+                    <button class="option-button celsius active-option">
+                      Celsius
+                    </button>
+                    <button class="option-button fahrenheit">Fahrenheit</button>
+                  </div>
+                </div>
+
+                <div class="setting-option wind-speed-settings">
+                  <h3 class="option-title">Wind Speed</h3>
+                  <div class="buttons-group wind-speed-buttons">
+                    <button class="option-button kmh active-option">
+                      km/h
+                    </button>
+                    <button class="option-button ms">m/s</button>
+                    <button class="option-button knots">Knots</button>
+                  </div>
+                </div>
+
+                <div class="setting-option pressure-settings">
+                  <h3 class="option-title">Pressure</h3>
+                  <div class="buttons-group pressure-buttons">
+                    <button class="option-button hpa">hPa</button>
+                    <button class="option-button inches">Inches</button>
+                    <button class="option-button kpa">kPa</button>
+                    <button class="option-button mm active-option">mm</button>
+                  </div>
+                </div>
+
+                <div class="setting-option precipitation-settings">
+                  <h3 class="option-title">Precipitation</h3>
+                  <div class="buttons-group precipitation-buttons">
+                    <button class="option-button millimeters active-option">
+                      Millimeters
+                    </button>
+                    <button class="option-button inches">Inches</button>
+                  </div>
+                </div>
+
+                <div class="setting-option distance-settings">
+                  <h3 class="option-title">Distance</h3>
+                  <div class="buttons-group distance-buttons">
+                    <button class="option-button kilometers active-option">
+                      Kilometers
+                    </button>
+                    <button class="option-button miles">Miles</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Theme Section -->
+            <div class="theme-settings">
+              <h2 class="settings-title">Theme</h2>
+              <div class="theme-options">
+                <h3 class="option-title">Appearance</h3>
+                <div class="switch-wrapper">
+                  <label class="theme-switch">
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- General Section -->
+            <div class="general-settings">
+              <h2 class="settings-title">General</h2>
+              <div class="general-options">
+                <p class="option-title">12-Hour Time</p>
+                <div class="switch-wrapper time-switch"></div>
+              </div>
             </div>
           </div>
         </section>
