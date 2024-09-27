@@ -1,0 +1,80 @@
+@import "../base/variables";
+
+@mixin heading-font($size) {
+  font-weight: 700;
+  color: $dark-text-color;
+  font-size: $size;
+}
+
+@mixin wrap-heading {
+  font-family: $font-rubik;
+  font-weight: 700;
+  color: $grey-text-color;
+  font-size: 1.05em;
+  text-transform: uppercase;
+}
+
+@mixin flex($direction, $align, $justify, $gap) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+  gap: $gap;
+}
+
+.map-section {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  grid-template-rows: 0.1fr 1.9fr;
+  gap: 15px;
+}
+
+.map-container {
+  height: 100%;
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.map-aside-section {
+  height: 100%;
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.bookmarked-city-container {
+  @include flex(column, normal, normal, 15px);
+}
+
+.bookmarked-city {
+  padding: 20px;
+  @include flex(row, center, normal, 15px);
+  background-color: $dark-secondary-bg-color;
+  border-radius: $border-radius;
+
+  img {
+    width: 70px;
+  }
+
+  .city-name-wrapper {
+    @include flex(row, center, normal, 20px);
+    flex-grow: 1;
+
+    h2 {
+      @include heading-font(1.8em);
+    }
+
+    button {
+      background-color: transparent;
+      border: none;
+      font-size: 1.5em;
+      color: $grey-text-color;
+      cursor: pointer;
+
+      &:hover {
+        color: $accent-color;
+      }
+    }
+  }
+  h3 {
+    @include heading-font(2em);
+  }
+}
