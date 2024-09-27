@@ -3,11 +3,14 @@
 
 // Components
 @import "./component/searchbar";
+@import "./component/modeswitch";
 
 // Pages
 @import "./pages/home";
 @import "./pages/dashboard";
 @import "./pages/cities";
+@import "./pages/map";
+@import "./pages/settings";
 
 .layout {
   width: 100%;
