@@ -2,7 +2,7 @@
 
 @mixin heading-font($size) {
   font-weight: 700;
-  color: $text-color;
+  color: $dark-text-color;
   font-size: $size;
 }
 
@@ -38,7 +38,7 @@
 }
 
 .city-search-result {
-  background-color: $secondary-bg;
+  background-color: $dark-secondary-bg-color;
   border-radius: $border-radius;
   height: 120px;
   padding-inline: 25px;
@@ -64,7 +64,7 @@
 
   .city-current-temperature {
     @include heading-font(2em);
-    color: $text-color;
+    color: $dark-text-color;
   }
 
   &:hover {
@@ -121,11 +121,11 @@
 
 .hourly-forecast-wrapper {
   @include flex(row, normal, center, 20px);
+  height: 100%;
 }
 
 .city-hourly-forecast {
   flex: 0 0 150px;
-  border-right: 1px solid $border-color;
   @include flex(column, center, space-around, 20px);
 
   p {
@@ -139,7 +139,7 @@
   }
 
   .city-current-temp {
-    color: $text-color;
+    color: $dark-text-color;
     font-size: 2em;
   }
 
@@ -149,8 +149,47 @@
 }
 
 // city-weekly-forecast-container
-.city-weekly-forecast-container {
-  height: 280px;
+.city-threeday-forecast-container {
   padding: 25px;
   @include flex(column, normal, normal, 20px);
+}
+
+.threeday-forecast-wrapper {
+  margin-block: 15px;
+  @include flex(column, normal, normal, 20px);
+}
+
+.forecast-day {
+  padding-inline: 25px;
+  height: 80px;
+  @include flex(row, center, space-between, 20px);
+  border-bottom: 1px solid$border-color;
+
+  p {
+    color: $grey-text-color;
+    font-weight: 600;
+    font-size: 1.05em;
+  }
+
+  .forecast-condition {
+    @include flex(row, center, normal, 20px);
+
+    img {
+      width: 50px;
+    }
+
+    span {
+      color: $dark-text-color;
+    }
+  }
+  .day-temperature {
+    font-size: 1.15em;
+    .temp-high {
+      color: $dark-text-color;
+    }
+  }
+
+  &:last-child {
+    border: none;
+  }
 }
