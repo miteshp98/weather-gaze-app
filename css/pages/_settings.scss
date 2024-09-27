@@ -1,0 +1,134 @@
+@import "../base/variables";
+
+@mixin heading-font($size) {
+  font-weight: 700;
+  color: $dark-text-color;
+  font-size: $size;
+}
+
+@mixin wrap-heading {
+  font-family: $font-rubik;
+  font-weight: 700;
+  color: $grey-text-color;
+  font-size: 1.05em;
+  text-transform: uppercase;
+}
+
+@mixin flex($direction, $align, $justify, $gap) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+  gap: $gap;
+}
+
+.setting-section {
+  display: grid;
+  grid-template-columns: 1.6fr 0.7fr;
+  grid-template-rows: 1fr;
+  gap: 15px;
+}
+
+.setting-container {
+  grid-area: 1 / 1 / 2 / 2;
+  padding: 25px;
+}
+
+.settings-title {
+  @include heading-font(1.7em);
+  margin-block: 10px 20px;
+}
+
+.settings-options {
+  @include flex(column, normal, normal, 20px);
+  background-color: $dark-secondary-bg-color;
+  border-radius: $border-radius;
+  padding: 25px;
+}
+
+.option-title {
+  @include wrap-heading;
+}
+
+.buttons-group {
+  margin-block: 20px;
+  @include flex(row, normal, normal, 2px);
+  background-color: $dark-bg-color;
+  border-radius: 10px;
+  padding: 5px;
+
+  button {
+    width: 50%;
+    border-radius: 5px;
+    border: none;
+    height: 30px;
+    color: $grey-text-color;
+    font-size: 1em;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+
+    &:hover {
+      background-color: $dark-secondary-bg-color;
+    }
+  }
+
+  .active-option {
+    color: $dark-text-color;
+    background-color: $accent-color;
+    font-weight: 600;
+  }
+}
+
+.theme-settings {
+  margin-block: 30px;
+}
+
+.theme-options {
+  background-color: $dark-secondary-bg-color;
+  border-radius: $border-radius;
+  padding: 20px;
+  @include flex(row, center, normal, 20px);
+
+  h3 {
+    @include wrap-heading;
+    flex-grow: 1;
+  }
+}
+
+//
+
+.general-options {
+  background-color: $dark-secondary-bg-color;
+  border-radius: $border-radius;
+  padding: 20px;
+  @include flex(row, center, normal, 20px);
+
+  p {
+    color: $dark-text-color;
+    font-weight: 600;
+    font-size: 1.1em;
+    flex-grow: 1;
+  }
+}
+.time-switch {
+  display: block;
+  width: 50px;
+  height: 25px;
+  background-color: $accent-color;
+  border-radius: 15px;
+  cursor: pointer;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 4px;
+    content: "";
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: white;
+  }
+}
