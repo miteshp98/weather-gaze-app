@@ -1,0 +1,24 @@
+@import "../base/variables";
+
+.error {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1111;
+  display: none;
+  font-family: $font-rubik;
+
+  p {
+    text-align: center;
+    color: $grey-text-color;
+    font-weight: 700;
+    font-size: 1.5em;
+  }
+
+  .error-code {
+    font-size: 15em;
+    margin-block: 10px;
+    color: $accent-color;
+  }
+}

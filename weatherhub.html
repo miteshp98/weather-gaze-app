@@ -17,6 +17,7 @@
     <!-- CSS STYLESHEET -->
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/base/reset.css" />
+    <link rel="stylesheet" href="css/component/loader.css" />
 
     <!-- Favicon -->
     <link
@@ -62,7 +63,8 @@
     />
   </head>
   <body>
-    <!-- Dark-Light Switch -->
+    <!-- Loader -->
+    <div class="loader"></div>
     <!--  -->
     <!-- Header Part -->
     <div class="layout">
@@ -87,7 +89,7 @@
               </li>
 
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="#cities" class="nav-link">
                   <i class="fa-solid fa-list"></i>
                   <span>Cities</span>
                 </a>
@@ -234,7 +236,7 @@
           </div>
         </section>
         <!--  -->
-        <section class="cities-section hidden">
+        <section class="cities-section hidden" id="cities">
           <!-- Searchbar Header -->
           <div class="city-searchbar-header">
             <form action="#">
@@ -463,6 +465,13 @@
         </section>
       </main>
     </div>
-    <!-- <script type="module" src="js/controller/controller.js"></script> -->
+
+    <div class="error">
+      <p class="error-code">400</p>
+      <p class="error-msg">
+        Bad API Request: Invalid location parameter value.
+      </p>
+    </div>
+    <script type="module" src="js/controller/controller.js"></script>
   </body>
 </html>

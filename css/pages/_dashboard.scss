@@ -45,6 +45,7 @@
 
 // current-weather-container
 .current-weather-section {
+  position: relative;
   height: 85%;
   grid-area: 1 / 1 / 2 / 2;
   background-color: $dark-secondary-bg-color;
@@ -178,7 +179,7 @@
   display: grid;
   grid-template-columns: repeat(2, 0.5fr);
   grid-template-rows: repeat(2, 0.5fr);
-  gap: 20px;
+  gap: 30px;
 }
 
 .air-quality-stat {
