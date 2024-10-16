@@ -63,9 +63,6 @@
     />
   </head>
   <body>
-    <!-- Loader -->
-    <div class="loader"></div>
-    <!--  -->
     <!-- Header Part -->
     <div class="layout">
       <header class="sidebar">
@@ -82,7 +79,11 @@
 
             <ul class="nav-list">
               <li class="nav-item">
-                <a href="#" class="nav-link active-tab">
+                <a
+                  href="#weather"
+                  class="nav-link active-tab"
+                  aria-current="page"
+                >
                   <i class="fa-solid fa-cloud-sun-rain"></i>
                   <span>Weather</span>
                 </a>
@@ -96,14 +97,14 @@
               </li>
 
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="#map" class="nav-link">
                   <i class="fa-solid fa-map"></i>
                   <span>Map</span>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="#settings" class="nav-link">
                   <i class="fa-solid fa-sliders"></i>
                   <span>Settings</span>
                 </a>
@@ -115,9 +116,11 @@
       <!-- Main - Content -->
       <main class="main-content">
         <!-- Weather-section -->
-        <section class="weather-section">
+        <section class="weather-section" id="weather">
+          <!-- Loader -->
+          <div class="loader"><div class="center-loader"></div></div>
           <!-- Current weather -->
-          <div class="current-weather-section main-container">
+          <!-- <div class="current-weather-section main-container">
             <div class="weather-info-wrapper">
               <div class="city-info">
                 <h1 class="city-title">Ahmedabad</h1>
@@ -131,9 +134,9 @@
                 alt="clear-day"
               />
             </div>
-          </div>
+          </div> -->
           <!-- Hourly Content -->
-          <div class="hourly-weather-section main-container">
+          <!-- <div class="hourly-weather-section main-container">
             <div class="w-hourly-forecast-wrapper">
               <h2 class="forecast-title">today's forecast</h2>
 
@@ -149,9 +152,9 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- Air Condition Content -->
-          <div class="air-quality-section main-container">
+          <!-- <div class="air-quality-section main-container">
             <div class="air-quality-wrapper">
               <div class="section-header">
                 <h2 class="forecast-title">Air conditions</h2>
@@ -202,15 +205,11 @@
                     <p class="stat-value">3</p>
                   </div>
                 </div>
-
-                <!-- Weather see more modal stats -->
-
-                <!--  -->
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- Week Weather Content -->
-          <div class="weekly-forecast-container main-container">
+          <!-- <div class="weekly-forecast-container main-container">
             <div class="weekly-forecast-wrapper">
               <h2 class="forecast-title">7-day forecast</h2>
 
@@ -233,20 +232,25 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </section>
         <!--  -->
         <section class="cities-section hidden" id="cities">
           <!-- Searchbar Header -->
           <div class="city-searchbar-header">
             <form action="#">
-              <input type="search" name="searchcity" id="city-search-input" />
+              <input
+                type="search"
+                name="searchcity"
+                id="city-search-input"
+                placeholder="Search for cities"
+              />
             </form>
           </div>
           <!--  -->
           <!-- Search Result Section -->
           <div class="city-search-result-container">
-            <div class="city-search-result">
+            <!-- <div class="city-search-result">
               <img
                 src="assets/icons/weathericon/clear-day.svg"
                 alt="clear-day"
@@ -258,69 +262,14 @@
                 <p class="city-current-time">10:30</p>
               </div>
               <h3 class="city-current-temperature">31&deg;</h3>
-            </div>
+            </div> -->
           </div>
 
           <!-- Aside section -->
-          <div class="city-overview-section">
-            <!--  -->
-            <div class="city-current-forecast-container">
-              <div class="current-forecast-wrapper">
-                <div class="current-city-info-wrap">
-                  <h2 class="city-name">Ahmedabad</h2>
-                  <p class="rain-probability">Chance of rain 0%</p>
-                </div>
-                <h3 class="city-temp">31&deg;</h3>
-              </div>
-
-              <img
-                src="assets/icons/weathericon/clear-day.svg"
-                alt="clear-day"
-                class="current-weather-icon"
-              />
-            </div>
-            <!--  -->
-            <div class="city-hourly-forecast-container">
-              <h2 class="city-wrapper-title">today's forecast</h2>
-
-              <div class="hourly-forecast-wrapper">
-                <div class="city-hourly-forecast">
-                  <p class="city-current-time">2:00AM</p>
-                  <img
-                    src="assets/icons/weathericon/clear-day.svg"
-                    alt="clear-day"
-                    class="condition-icon"
-                  />
-                  <p class="city-current-temp">25&deg;</p>
-                </div>
-              </div>
-            </div>
-            <!--  -->
-            <div class="city-threeday-forecast-container">
-              <h2 class="city-wrapper-title">3-day forecast</h2>
-
-              <div class="threeday-forecast-wrapper">
-                <div class="forecast-day">
-                  <p class="forecast-weekday">Today</p>
-                  <p class="forecast-condition">
-                    <img
-                      src="assets/icons/weathericon/clear-day.svg"
-                      alt="clear-day"
-                    />
-                    <span class="condition-label">Sunny</span>
-                  </p>
-                  <p class="forecast-temperature">
-                    <span class="temp-high">25</span>/<span class="temp-low"
-                      >10</span
-                    >
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="city-overview-section"></div>
         </section>
         <!-- Map Section -->
-        <section class="map-section hidden">
+        <section class="map-section hidden" id="map">
           <!-- Map Container -->
           <div class="map-container">
             <div id="map"></div>
@@ -380,7 +329,7 @@
         </section>
         <!--  -->
         <!-- Setting Section -->
-        <section class="settings-section hidden">
+        <section class="settings-section hidden" id="settings">
           <div class="settings-container">
             <!-- Units Section -->
             <div class="units-settings">
@@ -467,10 +416,21 @@
     </div>
 
     <div class="error">
-      <p class="error-code">400</p>
+      <!-- <p class="error-code">400</p>
       <p class="error-msg">
         Bad API Request: Invalid location parameter value.
+      </p> -->
+
+      <!-- If Location Denied -->
+
+      <!-- <p class="error-msg">
+        "You denied the request for geolocation. You can still search for other
+        cities."
       </p>
+
+      <button class="map-sec-btn">
+        <span>Cities</span>
+      </button> -->
     </div>
     <script type="module" src="js/controller/controller.js"></script>
   </body>
