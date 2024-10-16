@@ -6,8 +6,12 @@
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 1111;
-  display: none;
+  // display: none;
   font-family: $font-rubik;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 
   p {
     text-align: center;
@@ -20,5 +24,22 @@
     font-size: 15em;
     margin-block: 10px;
     color: $accent-color;
+  }
+
+  .cities-sec-btn {
+    width: 150px;
+    height: 45px;
+    background: $accent-color;
+    border: 1px solid $accent-color;
+    color: $dark-text-color;
+    font-size: 1.1em;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 2px;
+    transition: 0.1s ease-in-out;
+
+    &:hover {
+      background: transparent;
+    }
   }
 }
