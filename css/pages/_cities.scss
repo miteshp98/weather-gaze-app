@@ -55,19 +55,22 @@
     flex-grow: 1;
     .city-name-label {
       margin-block: 0 5px;
-      @include heading-font(2em);
+      @include heading-font(2.5em);
+      text-align: start;
     }
     .city-current-time {
+      text-align: start;
       color: $grey-text-color;
     }
   }
 
   .city-current-temperature {
-    @include heading-font(2em);
+    @include heading-font(2.5em);
     color: $dark-text-color;
   }
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     border-color: $accent-color;
     background-color: transparent;
   }
@@ -100,6 +103,7 @@
       @include heading-font(2.5em);
     }
     p {
+      padding-top: 5px;
       color: $grey-text-color;
     }
   }
