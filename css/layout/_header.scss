@@ -52,6 +52,10 @@
       &:hover {
         color: $dark-text-color;
       }
+
+      &:focus-visible {
+        outline: 1px solid $accent-color;
+      }
     }
     .active-tab {
       color: $dark-text-color;
