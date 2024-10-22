@@ -4,7 +4,7 @@ import { WEATHER_URL } from "./config.js";
 function timeout(s) {
   return new Promise(function (_, reject) {
     setTimeout(() => {
-      reject(new Error(`Request took too long! Timeout after ${s} second`));
+      reject(new Error(`Request took too long!`));
     }, s * 1000);
   });
 }
