@@ -1,13 +1,23 @@
 import WeatherDashboard from "./dashboard.js";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+
+// Manually import the marker icon images
+import markerIcon from "leaflet/dist/images/marker-icon.png";
+import markerIconRetina from "leaflet/dist/images/marker-icon-2x.png";
+import markerShadow from "leaflet/dist/images/marker-shadow.png";
 
 class MapView extends WeatherDashboard {
   _data;
-  _parentElement = document.querySelector(".bookmarked-city-container");
+  _mapSection = document.querySelector(".map-section");
+  _bookmarkContainer = document.querySelector(".bookmarked-city-container");
+  _popupCloseSec = 2.5;
   constructor() {
     super();
     this.map = null;
   }
 
+  // Receives data and triggers rendering of bookmarked cities and markers on the map
   _getData(data) {
     this._data = data;
 
@@ -18,6 +28,7 @@ class MapView extends WeatherDashboard {
     }
   }
 
+  // Handles the event for the map button to show the map
   _handleMapBtn() {
     const btn = document.querySelector(".show-map-btn");
 
@@ -27,12 +38,14 @@ class MapView extends WeatherDashboard {
     });
   }
 
+  // Toggles the visibility of the map container
   _toggleMap() {
     const mapContainer = document.querySelector("#map");
 
     if (mapContainer.classList.contains("hidden")) {
       mapContainer.classList.remove("hidden");
 
+      // If the map is not yet initialized, render it
       if (!this.map) {
         this.rendermap();
 
@@ -47,8 +60,9 @@ class MapView extends WeatherDashboard {
     }
   }
 
+  // Initializes the map with a specific view
   rendermap() {
-    this.map = L.map("map").setView([20, 0], 3);
+    this.map = L.map("map").setView([15, 0], 1);
 
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
@@ -57,30 +71,54 @@ class MapView extends WeatherDashboard {
     }).addTo(this.map);
   }
 
+  // Renders city markers on the map based on the provided data
   renderCityMarker(data) {
     const locations = data;
 
+    const customIcon = L.icon({
+      iconUrl: markerIcon,
+      iconRetinaUrl: markerIconRetina,
+      shadowUrl: markerShadow,
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41],
+    });
+
+    // Loop through each location to create markers
     Object.values(locations).forEach((city) => {
       const { currentConditions, address } = city;
       const locationName = address.charAt(0).toUpperCase() + address.slice(1);
+      const icon = this._weatherIconObject[currentConditions.icon];
 
-      const marker = L.marker([city.latitude, city.longitude]).addTo(this.map);
+      const marker = L.marker([city.latitude, city.longitude], {
+        icon: customIcon,
+      }).addTo(this.map);
 
       marker.bindPopup(`
         <h3 class="location-name">${locationName}</h3>
-        <p class="location-temp">${Math.round(
-          currentConditions.temp
-        )}&deg;</p>`);
+        <img src="${icon}" alt="${currentConditions.icon}" class='we-icon'/>
+        <p class="location-temp">${Math.round(currentConditions.temp)}&deg;</p>
+        <button class="zoom-to-btn" data-lat="${city.latitude}" data-lon="${
+        city.longitude
+      }"><i class="fa-solid fa-location-arrow"></i></button>
+        `);
 
       marker.on("click", () => {
         marker.openPopup();
+
+        setTimeout(() => {
+          marker.closePopup();
+        }, this._popupCloseSec * 1000);
       });
     });
   }
 
-  zoomToCity() {
-    this._parentElement.addEventListener("click", (e) => {
-      const button = e.target.closest(".see-location");
+  // Controls the direct zoom functionality on the map
+  controlDirectZoomBtn() {
+    this._mapSection.addEventListener("click", (e) => {
+      const button =
+        e.target.closest(".see-location") ?? e.target.closest(".zoom-to-btn");
 
       if (!button) return;
 
@@ -91,6 +129,7 @@ class MapView extends WeatherDashboard {
     });
   }
 
+  // Renders the list of bookmarked cities in the UI
   renderBookmarkedCity(data) {
     const weatherData = data;
 
@@ -99,12 +138,13 @@ class MapView extends WeatherDashboard {
         const { address, currentConditions } = key;
         const locationName = address.charAt(0).toUpperCase() + address.slice(1);
         const cityCurrentTemp = currentConditions.temp;
+        const icon = this._weatherIconObject[currentConditions.icon];
 
         const markup = `
       <div class="bookmarked-city">
                 <img
-                  src="assets/icons/weathericon/clear-day.svg"
-                  alt="clear-day"
+                  src="${icon}"
+                  alt="${currentConditions.icon}"
                   class="weather-condition-icon"
                 />
 
@@ -129,7 +169,7 @@ class MapView extends WeatherDashboard {
       })
       .join("");
 
-    this._parentElement.innerHTML = render;
+    this._bookmarkContainer.innerHTML = render;
   }
 }
 
