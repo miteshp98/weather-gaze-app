@@ -33,6 +33,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "core-js": "^3.38.1",
-    "leaflet": "^1.9.4"
+    "leaflet": "^1.9.4",
+    "regenerator-runtime": "^0.14.1"
   }
 }
