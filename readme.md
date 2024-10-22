@@ -5,7 +5,6 @@
 ## Table of Contents
 
 - [Features](#features)
-- [Project Structure](#project-structure)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Running the Project](#running-the-project)
@@ -19,17 +18,13 @@
 ## Features
 
 - **Real-Time Weather Data**: Displays current weather conditions, including temperature, humidity, and wind speed.
-- **7-Day Forecast**: Provides a comprehensive 7-day forecast.
-- **Air Quality**: Displays air quality index for a selected location.
-- **Responsive Design**: Fully responsive layout using Flexbox and Grid, making it mobile-friendly.
-
----
-
-## Project Structure
-
-Here’s an overview of the project file structure:
-
-Weather Gaze/ │ ├── docs/ # Documentation folder ├── dist/ # Compiled and minified files (after build) ├── src/ # Source files │ ├── assets/ # Images, fonts, icons, etc. │ ├── styles/ # SCSS/CSS files │ ├── scripts/ # JavaScript files │ └── index.html # Main HTML file │ ├── .gitignore # Files and directories to ignore in Git ├── package.json # Project metadata and dependencies ├── README.md # Documentation file └── .browserslistrc # Browser compatibility configuration
+- **Current Weather Display:** Shows the current weather conditions for a selected city.
+- **7-Day Forecast:** Provides a detailed weekly weather forecast.
+- **Dynamic City Search:** Allows users to search for weather data by city.
+- **Map Integration:** Displays locations on a map with weather details using Leaflet.js.
+- **User-Friendly Navigation:** Smooth transitions between sections with clear tab indicators.
+- **Responsive Design:** Fully responsive interface for optimal viewing on various devices.
+- **Error Handling:** Displays error messages for invalid searches or API failures.
 
 ---
 
@@ -44,6 +39,7 @@ The following technologies and libraries are used in **Weather Gaze**:
 - **FontAwesome**: For vector icons and social logos.
 - **SASS**: For styling with variables and mixins.
 - **Core-js and Regenerator-runtime**: Polyfills to support older browsers.
+- **Leaflet.js**: Map functionalities to display weather data locations.
 
 ---
 
@@ -76,10 +72,16 @@ Before running the project, ensure you have the following software installed:
 
 ---
 
-## Running the Project
+## API Integration
 
-After the installation steps, you can start the development server by running:
+The application fetches weather data using a weather API. Ensure you have an API key (if required) and replace the placeholder in the JavaScript files.
 
-```bash
-npm start
+```javascript
+const apiKey = "YOUR_API_KEY"; // Replace with your actual API key
 ```
+
+## Acknowledgments
+
+- **visualcrossing** for providing weather data.
+- **Leaflet.js** for the map functionalities.
+- Icons sourced from various open sources.
