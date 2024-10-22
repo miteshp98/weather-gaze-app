@@ -1,6 +1,10 @@
 import { TIMEOUT_SEC } from "./config.js";
 import { WEATHER_URL } from "./config.js";
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+import { async } from "regenerator-runtime";
 
+// Function to handle timeout for long requests
 function timeout(s) {
   return new Promise(function (_, reject) {
     setTimeout(() => {
@@ -9,6 +13,7 @@ function timeout(s) {
   });
 }
 
+// Function to fetch location data using LocationIQ API
 export async function AJAX_LOCATIONIQ(lat, lon) {
   const URL = `https://us1.locationiq.com/v1/reverse?key=pk.8f44cc979596fc0001b80923570770f5&`;
 
@@ -28,6 +33,7 @@ export async function AJAX_LOCATIONIQ(lat, lon) {
   }
 }
 
+// Function to fetch weather data for a given location
 export async function AJAX_WEATHER(location) {
   try {
     const fetchPro = fetch(`${WEATHER_URL}${location}`);
