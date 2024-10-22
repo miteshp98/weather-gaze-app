@@ -1,6 +1,6 @@
 import WeatherDashboard from "./dashboard.js";
 
-class weather extends WeatherDashboard {
+class WeatherView extends WeatherDashboard {
   _parentElement = document.querySelector(".weather-section");
   constructor() {
     super();
@@ -189,4 +189,4 @@ class weather extends WeatherDashboard {
   }
 }
 
-export const weather = new WeatherView();
+export const weatherView = new WeatherView();

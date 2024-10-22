@@ -3,7 +3,7 @@ import { API_KEY } from "../config.js";
 import { AJAX_LOCATIONIQ } from "../helper.js";
 import { AJAX_WEATHER } from "../helper.js";
 import { citiesView } from "../views/citiesview.js";
-import { weather } from "../views/weather.js";
+import { weatherView } from "../views/weather.js";
 
 import "core-js/stable";
 import "regenerator-runtime/runtime";

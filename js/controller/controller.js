@@ -4,7 +4,7 @@ import { WEATHER_URL } from "../config.js";
 import { API_KEY } from "../config.js";
 import { citiesView } from "../views/citiesview.js";
 import { mapView } from "../views/mapview.js";
-import { weather } from "../views/weather.js";
+import { weatherView } from "../views/weather.js";
 
 import "core-js/stable";
 import "regenerator-runtime/runtime";
