@@ -4,6 +4,7 @@ import { WEATHER_URL } from "../config.js";
 import { API_KEY } from "../config.js";
 import { weatherView } from "../views/weatherView.js";
 import { citiesView } from "../views/citiesview.js";
+import { mapView } from "../views/mapview.js";
 
 function getUserLocation() {
   if (!navigator.geolocation) {
@@ -28,38 +29,22 @@ function getUserLocation() {
       weatherView.renderError(
         `
       <p class="error-msg">
-      "You denied the request for geolocation. You can still search for other cities."
-      </p>
-      
-      <button class="cities-sec-btn">
-      <span>Cities</span>
-      </button>`
+      "You denied the request for geolocation."
+      </p>`
       );
     } else {
       weatherView.renderError(
         `
       <p class="error-msg">
-      "Unable to retrieve your location. You can still search for other cities."
-      </p>
-      
-      <button class="cities-sec-btn">
-      <span>Cities</span>
-      </button>`
+      "Unable to retrieve your location."
+      </p>`
       );
     }
   }
 }
 
-function handleSearchedCityBtn() {
-  const section = document.querySelector(".cities-section");
-
-  section.addEventListener("click", function (e) {
-    const button = e.target.closest("button");
-
-    if (!button) return;
-
-    const { cityname } = button.dataset;
-
+function controlSearchedCity() {
+  citiesView.addHandleSearchedCity(function (cityname) {
     model.getWeatherReport(cityname);
   });
 }
@@ -87,9 +72,11 @@ function init() {
   getUserLocation();
   weatherView.handleNavLinks();
   weatherView.handleCTAButton();
-  handleSearchedCityBtn();
+  controlSearchedCity();
 
   citiesView.addHandleSearch(controlSearchResults);
+  mapView._handleMapBtn();
+  mapView.zoomToCity();
 }
 
 init();
