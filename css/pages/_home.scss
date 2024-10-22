@@ -7,6 +7,7 @@ body {
 
 .welcome-section {
   overflow: hidden;
+  transform: scaleX(0);
 }
 
 .welcome-page-container {
@@ -83,6 +84,26 @@ body {
     &:hover {
       filter: contrast(2);
     }
+  }
+}
+
+.scale-in-hor-center {
+  -webkit-animation: scale-in-hor-center 1.8s 2.5s
+    cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: scale-in-hor-center 1.8s 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+}
+
+@keyframes scale-in-hor-center {
+  0% {
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    opacity: 1;
   }
 }
 

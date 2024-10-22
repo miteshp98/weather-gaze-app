@@ -129,10 +129,14 @@
 
 .location-temp {
   color: $dark-text-color;
-  font-size: 1.8em;
+  font-size: 2em;
   font-weight: 700;
   text-align: center;
-  margin: 10px !important;
+  margin: 0 !important;
+}
+
+.zoom-to-btn {
+  display: none;
 }
 
 .see-details-btn {
@@ -151,7 +155,83 @@
   }
 }
 
+.leaflet-popup-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
   background-color: $dark-secondary-bg-color !important;
+}
+
+.we-icon {
+  width: 50px;
+}
+
+@media screen and (max-width: 1540px) {
+  .bookmarked-city {
+    padding: 20px;
+    @include flex(row, center, normal, 15px);
+    background-color: $dark-secondary-bg-color;
+    border-radius: $border-radius;
+
+    img {
+      width: 70px;
+      display: none;
+    }
+
+    .city-name-wrapper {
+      @include flex(row, center, normal, 20px);
+      flex-grow: 1;
+
+      h2 {
+        @include heading-font(1.8em);
+      }
+
+      button {
+        background-color: transparent;
+        border: none;
+        font-size: 1.5em;
+        color: $grey-text-color;
+        cursor: pointer;
+      }
+    }
+    h3 {
+      @include heading-font(2em);
+    }
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .map-section {
+    grid-template-columns: 1fr;
+  }
+
+  .map-aside-section {
+    display: none;
+  }
+
+  .zoom-to-btn {
+    display: block;
+    border: 1px solid $dark-text-color;
+    width: 80px;
+    height: 30px;
+    border-radius: $border-radius;
+    font-size: 1.5em;
+    background-color: transparent;
+    color: $dark-text-color;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  #map {
+    height: 95vh;
+    width: 100%;
+
+    border-radius: $border-radius;
+    pointer-events: auto;
+  }
 }

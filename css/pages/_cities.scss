@@ -55,7 +55,7 @@
     flex-grow: 1;
     .city-name-label {
       margin-block: 0 5px;
-      @include heading-font(2.5em);
+      @include heading-font(3em);
       text-align: start;
     }
     .city-current-time {
@@ -65,7 +65,7 @@
   }
 
   .city-current-temperature {
-    @include heading-font(2.5em);
+    @include heading-font(3.5em);
     color: $dark-text-color;
   }
 
@@ -201,4 +201,55 @@
 .active-city {
   border-color: $accent-color;
   background-color: transparent;
+}
+
+@media screen and (max-width: 1300px) {
+  .cities-section {
+    grid-template-columns: 1fr;
+  }
+
+  .city-search-result {
+    height: 150px;
+
+    img {
+      width: 100px;
+    }
+
+    .city-name-time-wrapper {
+      .city-name-label {
+        margin-block: 0 5px;
+        @include heading-font(3em);
+        text-align: start;
+      }
+    }
+
+    .city-current-temperature {
+      @include heading-font(3.5em);
+    }
+  }
+
+  .city-overview-section {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .city-search-result {
+    height: 100px;
+    img {
+      width: 80px;
+      display: none;
+    }
+
+    .city-name-time-wrapper {
+      .city-name-label {
+        margin-block: 0 5px;
+        @include heading-font(2.5em);
+      }
+    }
+
+    .city-current-temperature {
+      @include heading-font(3em);
+    }
+  }
 }
