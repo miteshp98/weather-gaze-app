@@ -130,7 +130,7 @@
   font-size: 1.5em;
 }
 .error .error-code {
-  font-size: 15em;
+  font-size: 5em;
   margin-block: 10px;
   color: #2666cf;
 }
@@ -406,6 +406,7 @@ body {
   font-weight: 500;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
+  display: none;
 }
 .section-header button:hover {
   filter: brightness(1.2);
@@ -703,17 +704,58 @@ body {
   border: none;
 }
 
+.active-city {
+  border-color: #2666cf;
+  background-color: transparent;
+}
+
 .map-section {
   height: 100%;
   display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
-  grid-template-rows: 0.1fr 1.9fr;
+  grid-template-columns: 1.6fr 0.7fr;
+  grid-template-rows: 1fr;
   gap: 15px;
+  align-items: center;
 }
 
 .map-container {
   height: 100%;
   grid-area: 1/1/2/2;
+  position: relative;
+}
+
+.show-map-btn {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 700;
+  background-color: #151515;
+  color: white;
+  font-weight: 600;
+  font-size: 1.2em;
+  border: none;
+  transition: all 0.1s ease-in-out;
+}
+.show-map-btn:hover {
+  background-color: #2666cf;
+}
+.show-map-btn:focus-visible {
+  background-color: #2666cf;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+  border-radius: 25px;
+  pointer-events: auto;
+}
+
+.hide-map {
+  height: 0;
+  pointer-events: none;
 }
 
 .map-aside-section {
@@ -769,6 +811,41 @@ body {
   font-weight: 700;
   color: #c4cad3;
   font-size: 2em;
+}
+
+.location-name {
+  font-size: 1.8em;
+  color: #c4cad3;
+  font-weight: 600;
+  text-align: center;
+}
+
+.location-temp {
+  color: #c4cad3;
+  font-size: 1.8em;
+  font-weight: 700;
+  text-align: center;
+  margin: 10px !important;
+}
+
+.see-details-btn {
+  padding: 0 20px;
+  height: 35px;
+  border-radius: 25px;
+  border: 1px solid #c4cad3;
+  background-color: transparent;
+  color: #c4cad3;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  font-weight: 600;
+}
+.see-details-btn:hover {
+  background-color: #2666cf;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background-color: #151515 !important;
 }
 
 .setting-section {
