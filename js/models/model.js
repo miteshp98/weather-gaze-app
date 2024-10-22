@@ -43,6 +43,8 @@ export function addCity(locationName) {
     sessionStorage.setItem("cityname", JSON.stringify(city));
 
     getWeatherReport(normalizeName);
+  } else {
+    getWeatherReport(normalizeName);
   }
 
   if (city.includes(normalizeName)) {
@@ -74,7 +76,7 @@ export async function getWeatherReport(location) {
       <p class="error-code">${error.message}</p>
       
       <p class="error-msg">
-      "Unable to fetch weather data. Please check your connection or try another city."
+      "Unable to fetch weather data. Please check your connection or try again"
       </p>
 
       `);
