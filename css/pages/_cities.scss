@@ -197,3 +197,8 @@
     border: none;
   }
 }
+
+.active-city {
+  border-color: $accent-color;
+  background-color: transparent;
+}
