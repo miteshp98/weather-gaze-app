@@ -1,5 +1,5 @@
 export default class WeatherDashboard {
-  navlinks = document.querySelectorAll(".nav-link");
+  navlinks = Array.from(document.querySelectorAll(".nav-link"));
   sections = document.querySelectorAll("section");
 
   clearLoader() {
