@@ -19,6 +19,7 @@ class WeatherView extends WeatherDashboard {
   renderWeatherSection(data) {
     const { address, currentConditions } = data;
     const locationName = address.charAt(0).toUpperCase() + address.slice(1);
+    // const icon = this._weatherIconObject[currentConditions.icon];
 
     this._parentElement.innerHTML = "";
 
@@ -46,7 +47,7 @@ class WeatherView extends WeatherDashboard {
 
             <div class="weather-icon-container">
             
-                        <img src="assets/icons/weathericon/clear-day.svg" alt="clear-day"/>
+                    <img src="assets/icons/weathericon/clear-day.svg" alt="clear-day"/>
             </div>
 
     </div>
@@ -220,10 +221,10 @@ class WeatherView extends WeatherDashboard {
                       
                       <span class="temperature-high">${Math.round(
                         data.tempmax
-                      )}</span>/
-                      <span class="temperature-low">${Math.round(
-                        data.tempmin
-                      )}</span>
+                      )}  </span>/
+                        <span class="temperature-low">${Math.round(
+                          data.tempmin
+                        )}</span>
                   
               </p>
       </div>`;
