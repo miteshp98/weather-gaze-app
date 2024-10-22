@@ -6,6 +6,11 @@ import { weatherView } from "../views/weatherView.js";
 import { citiesView } from "../views/citiesview.js";
 import { mapView } from "../views/mapview.js";
 
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+import { async } from "regenerator-runtime";
+
+// Function to get the user's current location using the Geolocation API
 function getUserLocation() {
   if (!navigator.geolocation) {
     alert(`Geolocation is not supported by your browser`);
@@ -17,6 +22,7 @@ function getUserLocation() {
     });
   }
 
+  // Success callback function when geolocation is retrieved
   function success(position) {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
@@ -43,12 +49,14 @@ function getUserLocation() {
   }
 }
 
+// Function to control the searched city input and fetch the weather report
 function controlSearchedCity() {
   citiesView.addHandleSearchedCity(function (cityname) {
     model.getWeatherReport(cityname);
   });
 }
 
+// Function to handle the search input and validate the city name query
 function controlSearchResults() {
   const query = citiesView.getQuery();
   const regex = /^[a-zA-Z\s]+$/;
@@ -68,15 +76,15 @@ function controlSearchResults() {
   model.addCity(query);
 }
 
+// Initialization function to set up the app on load
 function init() {
   getUserLocation();
   weatherView.handleNavLinks();
-  weatherView.handleCTAButton();
   controlSearchedCity();
 
   citiesView.addHandleSearch(controlSearchResults);
   mapView._handleMapBtn();
-  mapView.zoomToCity();
+  mapView.controlDirectZoomBtn();
 }
 
 init();
