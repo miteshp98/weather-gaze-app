@@ -2,7 +2,7 @@ import * as model from "../models/model.js";
 import { UNITS } from "../config.js";
 import { WEATHER_URL } from "../config.js";
 import { API_KEY } from "../config.js";
-import { weatherView } from "../views/weatherView.js";
+import { weather } from "../views/weatherView.js";
 import { citiesView } from "../views/citiesview.js";
 import { mapView } from "../views/mapview.js";
 
