@@ -5,9 +5,14 @@ import { AJAX_WEATHER } from "../helper.js";
 import { citiesView } from "../views/citiesview.js";
 import { weatherView } from "../views/weatherView.js";
 
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+import { async } from "regenerator-runtime";
+
 export const weatherData = JSON.parse(sessionStorage.getItem("weather")) || {};
 export const city = JSON.parse(sessionStorage.getItem("cityname")) || [];
 
+// Reverse geocodes latitude and longitude into a location name
 export async function reverseGeocoding(lat, lon) {
   try {
     const data = await AJAX_LOCATIONIQ(lat, lon);
@@ -16,8 +21,10 @@ export async function reverseGeocoding(lat, lon) {
       const { town, city, neighbourhood } = data.address;
       const userLocationName = city ?? town ?? neighbourhood;
 
+      // Add the location to the list and fetch weather data
       addCity(userLocationName);
     } else {
+      // Render an error if location data cannot be fetched
       weatherView.renderError(`      
 
       <p class="error-msg">
@@ -35,6 +42,7 @@ export async function reverseGeocoding(lat, lon) {
   }
 }
 
+// Adds a new city to the list and fetches the weather report for it
 export function addCity(locationName) {
   const normalizeName = locationName.toLowerCase();
 
@@ -48,13 +56,16 @@ export function addCity(locationName) {
   }
 
   if (city.includes(normalizeName)) {
+    // Render weather data for the city if it's already present
     weatherView.render(weatherData[normalizeName]);
     citiesView.getData(weatherData);
   }
 }
 
+// Fetches the weather report for a specific location
 export async function getWeatherReport(location) {
   if (weatherData[location]) {
+    // Check if weather data for the location is already available
     weatherView.render(weatherData[location]);
     citiesView.render(weatherData[location]);
   } else {
