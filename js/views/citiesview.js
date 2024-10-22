@@ -1,5 +1,6 @@
 import { weatherData } from "../models/model.js";
 import WeatherDashboard from "./dashboard.js";
+import { mapView } from "./mapview.js";
 
 class CitiesView extends WeatherDashboard {
   _formElement = document.querySelector("form");
@@ -25,6 +26,7 @@ class CitiesView extends WeatherDashboard {
 
     const weatherData = data;
     this.generateSearchResults(weatherData);
+    mapView._getData(weatherData);
   }
 
   getQuery() {
@@ -46,10 +48,27 @@ class CitiesView extends WeatherDashboard {
     });
   }
 
+  addHandleSearchedCity(handler) {
+    const section = document.querySelector(".cities-section");
+
+    section.addEventListener("click", function (e) {
+      const button = e.target.closest("button");
+
+      if (!button) return;
+
+      const buttons = section.querySelectorAll(".city-search-result");
+      buttons.forEach((btn) => btn.classList.remove("active-city"));
+      button.classList.add("active-city");
+
+      const { cityname } = button.dataset;
+      handler(cityname);
+    });
+  }
+
   generateSearchResults(data) {
     const container = document.querySelector(".city-search-result-container");
 
-    const test = Object.values(data)
+    const render = Object.values(data)
       .map((key) => {
         const { address, currentConditions } = key;
         const locationName = address.charAt(0).toUpperCase() + address.slice(1);
@@ -81,7 +100,7 @@ class CitiesView extends WeatherDashboard {
       })
       .join("");
 
-    container.innerHTML = test;
+    container.innerHTML = render;
   }
 
   renderCitySection(data) {
