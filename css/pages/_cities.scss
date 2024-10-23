@@ -253,3 +253,16 @@
     }
   }
 }
+@media screen and (max-width: 400px) {
+  .city-search-result {
+    .city-name-time-wrapper {
+      .city-name-label {
+        @include heading-font(2.2em);
+      }
+    }
+
+    .city-current-temperature {
+      @include heading-font(2.5em);
+    }
+  }
+}

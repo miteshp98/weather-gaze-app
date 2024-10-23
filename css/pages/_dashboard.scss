@@ -423,6 +423,9 @@
 }
 
 @media screen and (max-width: 600px) {
+  .main-content {
+    padding-inline: 10px;
+  }
   .current-weather-section,
   .hourly-weather-section,
   .weekly-forecast-container {
@@ -438,7 +441,9 @@
   }
 
   .forecast-slider {
+    padding: 0;
     .forecast-hour {
+      flex: 0 0 130px;
       &:nth-of-type(8) {
         display: none;
       }
@@ -461,9 +466,9 @@
     }
 
     .stat-details {
-      font-size: 1em;
+      font-size: 0.8em;
       .stat-value {
-        font-size: 1.7em;
+        font-size: 1.8em;
       }
     }
   }
@@ -471,7 +476,10 @@
   .forecast-day-item {
     .day-condition {
       img {
-        width: 40px;
+        width: 45px;
+      }
+      span {
+        display: none;
       }
     }
   }
@@ -480,8 +488,6 @@
 @media screen and (max-width: 400px) {
   .forecast-slider {
     .forecast-hour {
-      flex: 0 0 150px;
-
       &:nth-child(1) {
         display: none;
       }
