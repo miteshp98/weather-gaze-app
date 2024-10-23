@@ -66,13 +66,13 @@
 @media screen and (max-width: 1024px) {
   .sidebar {
     position: fixed;
-    bottom: 5px;
+    bottom: 0;
     width: 100%;
-    height: max-content;
+    height: 55px;
     min-height: auto;
     background-color: $dark-secondary-bg-color;
     z-index: 1111;
-    padding: 5px;
+    padding: 0;
 
     box-shadow: 0px 0px 5px 0 rgba(0, 0, 0, 0.483);
   }
@@ -80,9 +80,12 @@
   .header-container {
     background-color: transparent;
     border-radius: 0;
+    height: 100%;
+    padding: 0;
   }
 
   .main-nav {
+    height: 100%;
     flex-direction: row;
     justify-content: center;
   }
