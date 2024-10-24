@@ -18,8 +18,8 @@ export async function reverseGeocoding(lat, lon) {
     const data = await AJAX_LOCATIONIQ(lat, lon);
 
     if (data) {
-      const { town, city, neighbourhood } = data.address;
-      const userLocationName = city ?? town ?? neighbourhood;
+      const { town, city, state_district } = data.address;
+      const userLocationName = city ?? town ?? state_district;
 
       // Add the location to the list and fetch weather data
       addCity(userLocationName);
@@ -28,7 +28,7 @@ export async function reverseGeocoding(lat, lon) {
       weatherView.renderError(`      
 
       <p class="error-msg">
-      "Unable to fetch location details. Please search for a city manually."
+      "Unable to fetch location details."
       </p>`);
     }
   } catch (error) {
@@ -37,7 +37,7 @@ export async function reverseGeocoding(lat, lon) {
     weatherView.renderError(`
       
       <p class="error-msg">
-      "Unable to retrieve your location details. Please search for a city manually."
+      "Unable to retrieve your location details."
       </p>`);
   }
 }
